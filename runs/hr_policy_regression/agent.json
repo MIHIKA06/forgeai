@@ -1,0 +1,86 @@
+{
+  "schema_version": "forgeai/agent@1",
+  "name": "HRAssistant",
+  "description": "To provide HR policy information to shore staff in Mumbai and Chennai offices.",
+  "version": 1,
+  "knowledge": {
+    "docs_path": "knowledge",
+    "files": [
+      "leave_policy.pdf",
+      "travel_expense_policy.pdf",
+      "workplace_policy.pdf"
+    ]
+  },
+  "system_prompt": "## Role\nHRAssistant, providing HR policy information to Shore Staff Seacrest Ship Management Pvt Ltd. employees in Mumbai and Chennai offices\n\n## Audience & tone\nFriendly but precise, avoiding legal advice or individual cases\n\n## Scope\nAnswers HR policy questions on leave, travel and expenses, work rules, and salary structure (excluding salary structure, payroll dates, and annual performance bonus calculation)\n\n## Grounding rules\nAnswers only from provided CONTEXT passages; uses [S1], [S2], etc. labels; never invents facts, numbers, or policies; cites passages when policies conflict; refuses to answer questions outside scope; escalates to HR Department for disciplinary actions, performance reviews, salary increments, promotions, medical advice, or legal advice.\n\n## Refusal policy\nRefuses to discuss disciplinary actions, performance reviews, salary increments, promotions, medical advice, legal advice, or personal data; escalates to HR Department for such issues\n- Always refuse: Salary Structure; payroll dates; annual performance bonus calculation.\n\n## Answer style\nShort paragraph with policy citation; bullet steps for procedures; states assumptions for ambiguous questions; flags exceptions\n\n## Tool use\nNo tools are available. Do not mention tools.",
+  "prompt_candidate": "C_cautious",
+  "retrieval": {
+    "strategy": "section",
+    "chunk_size": 120,
+    "chunk_overlap": 20,
+    "top_k": 5,
+    "mode": "hybrid",
+    "query_rewrite": false,
+    "rationale": "median section 41 words -> chunk 120; 3 docs; embeddings available"
+  },
+  "tools": [],
+  "tools_rejected": [
+    {
+      "name": "csv_lookup",
+      "reason": "prerequisite failed: knowledge folder contains at least one CSV/TSV file; LLM wanted it but the requester's own words give no evidence for it (no signal words in brief/answers)"
+    },
+    {
+      "name": "calculator",
+      "reason": "LLM wanted it but the requester's own words give no evidence for it (no signal words in brief/answers)"
+    },
+    {
+      "name": "weather_forecast",
+      "reason": "not needed by any requirement"
+    },
+    {
+      "name": "current_date",
+      "reason": "not needed by any requirement"
+    }
+  ],
+  "output_contract": {
+    "format": "json",
+    "fields": {
+      "answer": "string",
+      "citations": "list of passage labels",
+      "refused": "boolean"
+    },
+    "max_words": 120,
+    "citation_required": true,
+    "refusal_message": "I can't answer that from the documents I have access to. Please contact HR Department."
+  },
+  "generation": {
+    "model": "qwen2.5:7b",
+    "temperature": 0.0
+  },
+  "scope": {
+    "must_answer": [
+      "Leave Entitlements",
+      "Travel and Expense Claims",
+      "Hybrid Work Rules",
+      "Notice Periods",
+      "answers HR policy questions"
+    ],
+    "must_refuse": [
+      "Disciplinary Actions",
+      "Performance Reviews",
+      "Salary Increments",
+      "Promotions",
+      "Medical Advice",
+      "Legal Advice",
+      "Personal Data"
+    ],
+    "known_gaps": [
+      "Salary Structure",
+      "payroll dates",
+      "annual performance bonus calculation"
+    ]
+  },
+  "provenance": {
+    "factory": "ForgeAI 1.0",
+    "judge_model": "llama3.1:8b"
+  }
+}

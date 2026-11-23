@@ -1,0 +1,1194 @@
+{
+  "v0": {
+    "scores": {
+      "n": 8,
+      "passed": 3,
+      "pass_rate": 0.375,
+      "answer_accuracy": 0.667,
+      "groundedness": 0.4,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.167,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.375,
+      "mean_fact_score": 0.708,
+      "judge_disagreements": 8,
+      "judge_flags_overruled": 4,
+      "by_type": {
+        "ambiguous": "0/1",
+        "answerable": "1/4",
+        "out_of_scope": "2/2",
+        "tool": "0/1"
+      },
+      "failure_categories": {
+        "hallucination": 3,
+        "prompt_defect": 1,
+        "wrong_refusal": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "results": [
+      {
+        "id": "A01",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What conditions apply to returning unused parts?",
+        "expected_behavior": "answer",
+        "answer": "Returns of unused parts in original packaging are accepted within 30 days of delivery with a 15 percent restocking fee for Supplier Marinetech. For Supplier Oceanic, returns are accepted within 14 days of delivery with a 20 percent restocking fee. Electrical and electronic parts from Supplier Oceanic cannot be returned once the seal is broken.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [
+          "output was not valid contract JSON (repaired)"
+        ],
+        "latency_s": 0.0,
+        "tokens": 2932,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 0.75,
+        "det_facts": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "stated",
+          "stated",
+          "contradicted"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [
+          "Supplier Marinetech",
+          "Supplier Oceanic"
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#6"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#1"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#5"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#1"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A04",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What action must the chief engineer take if the onboard stock of a criticality A item falls below the minimum?",
+        "expected_behavior": "answer",
+        "answer": "The chief engineer must submit a requisition within 24 hours if the onboard stock of a criticality A item falls below the minimum.",
+        "refused": false,
+        "cited_docs": [
+          "procurement_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [
+          "output was not valid contract JSON (repaired)"
+        ],
+        "latency_s": 0.0,
+        "tokens": 2691,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          false,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [
+          "submit"
+        ],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [
+          "criticality A item"
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "judge flagged unsupported claims: ['submit']",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#1"
+          },
+          {
+            "label": "S6",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A05",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the surcharge for urgent dispatch of criticality A items?",
+        "expected_behavior": "answer",
+        "answer": "The surcharge for urgent dispatch of criticality A items is 20 percent of the order value.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "spares_catalogue.csv",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2182,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": false,
+        "grounded": true,
+        "fact_score": 0.5,
+        "det_facts": [
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "missing"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "The surcharge is for urgent dispatch of criticality A items."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "missing expected facts ['48 hours']",
+        "category": "prompt_defect",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#5"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S6",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#34"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A07",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What additional charge is applied for delivery to ports other than Singapore or Rotterdam?",
+        "expected_behavior": "answer",
+        "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2635,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": 0.0,
+        "reason": "refused although the answer is in the documents",
+        "category": "wrong_refusal",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#7"
+          },
+          {
+            "label": "S4",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#2"
+          },
+          {
+            "label": "S6",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "E01",
+        "type": "ambiguous",
+        "split": "holdout",
+        "question": "Can I return unused parts? I mean, like, if they're in the box and all, how long do I have? And what if it's like, 15% of the cost or something?",
+        "expected_behavior": "answer",
+        "answer": "Returns of unused parts are subject to a restocking fee. For Supplier Oceanic, returns must be made within 14 days of delivery and are subject to a 20 percent restocking fee. For Supplier Marinetech, returns must be made within 30 days of delivery and are subject to a 15 percent restocking fee. Always check the specific supplier's terms for the parts you are considering returning.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [
+          "output was not valid contract JSON (repaired)"
+        ],
+        "latency_s": 0.0,
+        "tokens": 2354,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "contradicted",
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [
+          "Always check the specific supplier's terms for the parts you are considering returning"
+        ],
+        "judge_disagreements": 3,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "judge flagged unsupported claims: [\"Always check the specific supplier's terms for the parts you are considering returning\"]",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#6"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#1"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#5"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O01",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you provide legal advice on the contract terms with our suppliers?",
+        "expected_behavior": "refuse",
+        "answer": "I can't provide legal advice. Please contact the legal team for assistance with contract terms.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2639,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#0"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#3"
+          },
+          {
+            "label": "S3",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#0"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#8"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#3"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O05",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you track multiple suppliers' delivery statuses for a single order?",
+        "expected_behavior": "refuse",
+        "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2098,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#8"
+          },
+          {
+            "label": "S3",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S5",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#7"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "T02",
+        "type": "tool",
+        "split": "holdout",
+        "question": "What is the total unit price in USD for purchasing 10 units of the Main engine fuel pump plunger and barrel with part number OE-ME-7006 from Oceanic Engine Parts?",
+        "expected_behavior": "answer",
+        "answer": "The total unit price in USD for purchasing 10 units of the Main engine fuel pump plunger and barrel with part number OE-ME-7006 from Oceanic Engine Parts is $44,200.00.",
+        "refused": false,
+        "cited_docs": [
+          "spares_catalogue.csv"
+        ],
+        "retrieved_docs": [
+          "spares_catalogue.csv"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2535,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          true
+        ],
+        "llm_facts": [
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [
+          "44200"
+        ],
+        "cited_expected": true,
+        "reason": "numbers not found in any passage/tool output: ['44200']; expected tool calculator was not called",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#27"
+          },
+          {
+            "label": "S2",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#22"
+          },
+          {
+            "label": "S3",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#28"
+          },
+          {
+            "label": "S4",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#29"
+          },
+          {
+            "label": "S5",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#23"
+          },
+          {
+            "label": "S6",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#24"
+          }
+        ],
+        "tool_results": []
+      }
+    ]
+  },
+  "final": {
+    "scores": {
+      "n": 8,
+      "passed": 5,
+      "pass_rate": 0.625,
+      "answer_accuracy": 0.667,
+      "groundedness": 0.8,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.167,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.125,
+      "mean_fact_score": 0.708,
+      "judge_disagreements": 9,
+      "judge_flags_overruled": 5,
+      "by_type": {
+        "ambiguous": "1/1",
+        "answerable": "2/4",
+        "out_of_scope": "2/2",
+        "tool": "0/1"
+      },
+      "failure_categories": {
+        "prompt_defect": 1,
+        "wrong_refusal": 1,
+        "hallucination": 1
+      },
+      "mean_latency_s": 0.001
+    },
+    "results": [
+      {
+        "id": "A01",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What conditions apply to returning unused parts?",
+        "expected_behavior": "answer",
+        "answer": "Unused parts in original packaging may be returned within 30 days of delivery with a restocking fee of 15 percent of the part value, according to Supplier Marinetech's terms. For Supplier Oceanic, returns are accepted within 14 days of delivery with a 20 percent restocking fee. Electrical and electronic parts from Supplier Oceanic cannot be returned once the seal is broken.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 1325,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 0.75,
+        "det_facts": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "stated",
+          "stated",
+          "contradicted"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [
+          "Supplier Marinetech's terms",
+          "Supplier Oceanic"
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#6"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#1"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#5"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#1"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A04",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What action must the chief engineer take if the onboard stock of a criticality A item falls below the minimum?",
+        "expected_behavior": "answer",
+        "answer": "The chief engineer must raise a requisition within 24 hours if the onboard stock of a criticality A item falls below the minimum.",
+        "refused": false,
+        "cited_docs": [
+          "procurement_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2734,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "missing"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [
+          "within 24 hours"
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#1"
+          },
+          {
+            "label": "S6",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A05",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the surcharge for urgent dispatch of criticality A items?",
+        "expected_behavior": "answer",
+        "answer": "The surcharge for urgent dispatch of criticality A items is 20 percent of the order value.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "spares_catalogue.csv",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2206,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": false,
+        "grounded": true,
+        "fact_score": 0.5,
+        "det_facts": [
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "missing"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "The surcharge is for urgent dispatch of criticality A items."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "missing expected facts ['48 hours']",
+        "category": "prompt_defect",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#5"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S6",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#34"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A07",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What additional charge is applied for delivery to ports other than Singapore or Rotterdam?",
+        "expected_behavior": "answer",
+        "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 3529,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": 0.0,
+        "reason": "refused although the answer is in the documents",
+        "category": "wrong_refusal",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#7"
+          },
+          {
+            "label": "S4",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#2"
+          },
+          {
+            "label": "S6",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "E01",
+        "type": "ambiguous",
+        "split": "holdout",
+        "question": "Can I return unused parts? I mean, like, if they're in the box and all, how long do I have? And what if it's like, 15% of the cost or something?",
+        "expected_behavior": "answer",
+        "answer": "Returns of unused parts are accepted within 30 days of delivery for Supplier Marinetech with a restocking fee of 15% of the part value, and within 14 days for Supplier Oceanic with a 20% restocking fee.",
+        "refused": false,
+        "cited_docs": [
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [
+          "output was not valid contract JSON (repaired)"
+        ],
+        "latency_s": 0.01,
+        "tokens": 5242,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "llm_facts": [
+          "stated",
+          "contradicted",
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 4,
+        "judge_flags_overruled": [
+          "Supplier Oceanic has a 20% restocking fee for 14 days"
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#6"
+          },
+          {
+            "label": "S3",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#2"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#1"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#5"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O01",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you provide legal advice on the contract terms with our suppliers?",
+        "expected_behavior": "refuse",
+        "answer": "I can't provide legal advice. Please consult a legal professional for guidance on contract terms.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 1151,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#0"
+          },
+          {
+            "label": "S2",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#3"
+          },
+          {
+            "label": "S3",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#0"
+          },
+          {
+            "label": "S4",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#8"
+          },
+          {
+            "label": "S5",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#3"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O05",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you track multiple suppliers' delivery statuses for a single order?",
+        "expected_behavior": "refuse",
+        "answer": "I can't track multiple suppliers' delivery statuses for a single order from the documents I have access to. Please contact the responsible team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "procurement_policy.pdf",
+          "supplier_marinetech_terms.pdf",
+          "supplier_oceanic_terms.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 2556,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "supplier_oceanic_terms.pdf",
+            "chunk_id": "supplier_oceanic_terms.pdf#4"
+          },
+          {
+            "label": "S2",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#8"
+          },
+          {
+            "label": "S3",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#6"
+          },
+          {
+            "label": "S5",
+            "doc": "procurement_policy.pdf",
+            "chunk_id": "procurement_policy.pdf#7"
+          },
+          {
+            "label": "S6",
+            "doc": "supplier_marinetech_terms.pdf",
+            "chunk_id": "supplier_marinetech_terms.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "T02",
+        "type": "tool",
+        "split": "holdout",
+        "question": "What is the total unit price in USD for purchasing 10 units of the Main engine fuel pump plunger and barrel with part number OE-ME-7006 from Oceanic Engine Parts?",
+        "expected_behavior": "answer",
+        "answer": "The total unit price in USD for purchasing 10 units of the Main engine fuel pump plunger and barrel with part number OE-ME-7006 from Oceanic Engine Parts is $44,200.00.",
+        "refused": false,
+        "cited_docs": [
+          "spares_catalogue.csv"
+        ],
+        "retrieved_docs": [
+          "spares_catalogue.csv"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 0.0,
+        "tokens": 1538,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          true
+        ],
+        "llm_facts": [
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [
+          "44200"
+        ],
+        "cited_expected": true,
+        "reason": "numbers not found in any passage/tool output: ['44200']; expected tool calculator was not called",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#27"
+          },
+          {
+            "label": "S2",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#22"
+          },
+          {
+            "label": "S3",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#28"
+          },
+          {
+            "label": "S4",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#29"
+          },
+          {
+            "label": "S5",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#23"
+          },
+          {
+            "label": "S6",
+            "doc": "spares_catalogue.csv",
+            "chunk_id": "spares_catalogue.csv#24"
+          }
+        ],
+        "tool_results": []
+      }
+    ]
+  }
+}

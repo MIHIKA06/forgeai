@@ -1,0 +1,136 @@
+{
+  "agent": "HRAssistant",
+  "final_version": 1,
+  "overall": {
+    "n": 25,
+    "passed": 24,
+    "pass_rate": 0.96,
+    "answer_accuracy": 1.0,
+    "groundedness": 1.0,
+    "refusal_recall": 0.875,
+    "false_refusal_rate": 0.0,
+    "retrieval_hit_rate": 0.941,
+    "contract_violation_rate": 0.0,
+    "mean_fact_score": 0.951,
+    "judge_disagreements": 15,
+    "judge_flags_overruled": 12,
+    "by_type": {
+      "ambiguous": "3/3",
+      "answerable": "12/12",
+      "gap_probe": "3/3",
+      "multi_doc": "2/2",
+      "out_of_scope": "4/5"
+    },
+    "failure_categories": {
+      "hallucination": 1
+    },
+    "mean_latency_s": 0.0
+  },
+  "dev_by_iteration": [
+    {
+      "iteration": 0,
+      "version": 0,
+      "accepted": true,
+      "n": 17,
+      "passed": 16,
+      "pass_rate": 0.941,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 0.8,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 0.917,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.931,
+      "judge_disagreements": 11,
+      "judge_flags_overruled": 8,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "2/2",
+        "out_of_scope": "2/3"
+      },
+      "failure_categories": {
+        "hallucination": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    {
+      "iteration": 1,
+      "version": 1,
+      "accepted": true,
+      "n": 17,
+      "passed": 17,
+      "pass_rate": 1.0,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 0.917,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.931,
+      "judge_disagreements": 12,
+      "judge_flags_overruled": 9,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "2/2",
+        "out_of_scope": "3/3"
+      },
+      "failure_categories": {},
+      "mean_latency_s": 0.0
+    }
+  ],
+  "holdout": {
+    "v0": {
+      "n": 8,
+      "passed": 7,
+      "pass_rate": 0.875,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 0.667,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 1.0,
+      "judge_disagreements": 3,
+      "judge_flags_overruled": 3,
+      "by_type": {
+        "ambiguous": "1/1",
+        "answerable": "4/4",
+        "gap_probe": "1/1",
+        "out_of_scope": "1/2"
+      },
+      "failure_categories": {
+        "hallucination": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "final": {
+      "n": 8,
+      "passed": 7,
+      "pass_rate": 0.875,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 0.667,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 1.0,
+      "judge_disagreements": 3,
+      "judge_flags_overruled": 3,
+      "by_type": {
+        "ambiguous": "1/1",
+        "answerable": "4/4",
+        "gap_probe": "1/1",
+        "out_of_scope": "1/2"
+      },
+      "failure_categories": {
+        "hallucination": 1
+      },
+      "mean_latency_s": 0.0
+    }
+  },
+  "judge_mode": "full"
+}

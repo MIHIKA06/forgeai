@@ -7,7 +7,42 @@
 The core idea: *every stage runs on a small model that will sometimes lie, so every LLM claim is paired with a
 deterministic check that can catch it.* See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full design.
 
-<!-- RESULTS -->
+## Results of the two committed demo runs
+
+| | HR policy assistant | Ship-spares procurement assistant |
+|---|---|---|
+| Documents | 3 PDFs | 1 CSV catalogue (42 rows) + 3 PDFs |
+| Guard flagged (brief asked, docs can't support) | salary structure, payroll dates, bonus calculation | live supplier stock levels, order tracking |
+| Tools attached | **none** (calculator/date proposed by the LLM, rejected: no evidence in the requester's words) | `csv_lookup`, `calculator` (weather & date rejected) |
+| Eval set | 25 generated cases (dev 17 / holdout 8) | 27 generated cases incl. 3 tool cases (dev 19 / holdout 8) |
+| Prompt tournament | 3 candidates, winner `C_cautious` | 3 candidates, winner `A_strict` |
+| Optimiser loop | iter 1: hallucination fix → dev 94% → 100% | iter 1: fix **reverted** (74% → 63%); iter 2: lateral fix accepted; early stop |
+| Holdout (never seen by optimiser) | 88% → 88% (no gain: the dev gain does not generalise, and the report says so) | 38% → 62% |
+| **Final (strict)** | **24/25 (96%)** | **19/27 (70%)** |
+| Failure audit | 1 agent error | 3 agent errors, 5 flawed generated tests → ≤ 89% if excused |
+
+Full evidence per run in [`runs/hr_policy/REPORT.md`](runs/hr_policy/REPORT.md) and
+[`runs/ship_spares/REPORT.md`](runs/ship_spares/REPORT.md). Stretch-goal evidence:
+[`BASELINE_COMPARISON.md`](runs/hr_policy/BASELINE_COMPARISON.md) (factory 96% vs my hand-written agent 92% on the same
+evals and judge) and [`REGRESSION.md`](runs/hr_policy_regression/REGRESSION.md) (leave policy v5: one test correctly
+detected as *stale*, the agent gives the new 15-day answer; two breaks traced to model instability, not the edit).
+
+Uncached wall time on an M-series Mac with Ollama: ~7 min (HR) and ~15 min (spares). The committed artifacts were
+re-generated from the on-disk LLM cache after the last judge fix, so `budget.json` shows cache hits and near-zero wall time.
+
+### Where the pipeline caught *itself* lying (found while building this)
+
+1. **Requirements writer dropped inconvenient asks.** In one run the LLM silently removed "payroll dates" and "bonus"
+   from the must-answer list, so the guard could never flag them → added the brief-asks completeness check.
+2. **Tool selection justified by invented needs.** The requirements LLM wrote "today's date for deadlines" for the
+   spares brief (the requester never mentioned dates) and that became the evidence for `current_date` → tool evidence
+   must now come from the requester's own words.
+3. **The 8B judge flags verbatim-supported sentences as "unsupported claims".** Groundedness was 50% for answers that
+   quoted the policy → the judge's veto now needs deterministic agreement (12 + 9 flags overruled, reported).
+4. **The independent failure reviewer was a yes-man.** It excused 8/8 failures, including flat refusals → deterministic
+   rules it cannot overrule (refusing a question whose verified source was retrieved is always an agent error).
+5. **Fuzzy matching hid a document change.** "10 days" → "15 days" is ~99% similar → stale-test detection uses exact
+   normalised containment of the most relevant source sentence.
 
 ## Quick start
 

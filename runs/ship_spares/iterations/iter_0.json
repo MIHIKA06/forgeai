@@ -1,0 +1,1356 @@
+{
+  "iteration": 0,
+  "scores": {
+    "n": 19,
+    "passed": 14,
+    "pass_rate": 0.737,
+    "answer_accuracy": 0.786,
+    "groundedness": 0.846,
+    "refusal_recall": 1.0,
+    "false_refusal_rate": 0.071,
+    "retrieval_hit_rate": 1.0,
+    "contract_violation_rate": 0.211,
+    "mean_fact_score": 0.786,
+    "judge_disagreements": 9,
+    "judge_flags_overruled": 4,
+    "by_type": {
+      "ambiguous": "2/2",
+      "answerable": "5/8",
+      "gap_probe": "2/2",
+      "multi_doc": "1/2",
+      "out_of_scope": "3/3",
+      "tool": "1/2"
+    },
+    "failure_categories": {
+      "prompt_defect": 3,
+      "hallucination": 1,
+      "wrong_refusal": 1
+    },
+    "mean_latency_s": 0.0
+  },
+  "results": [
+    {
+      "id": "A02",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the consequence for a supplier with on-time delivery below 85 percent for two consecutive reviews?",
+      "expected_behavior": "answer",
+      "answer": "A supplier with on-time delivery below 85 percent for two consecutive reviews is placed on probation.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1247,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#8"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#6"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#4"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#6"
+        },
+        {
+          "label": "S6",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A03",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the minimum order value for 8% discount and what currency is used?",
+      "expected_behavior": "answer",
+      "answer": "The minimum order value for an 8% discount is USD 15,000, and the currency used is US dollars.",
+      "refused": false,
+      "cited_docs": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [
+        "output was not valid contract JSON (repaired)"
+      ],
+      "latency_s": 0.0,
+      "tokens": 2732,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S2",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#8"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#5"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        },
+        {
+          "label": "S6",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A06",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What approval is needed for a purchase order valued at $7,500?",
+      "expected_behavior": "answer",
+      "answer": "A purchase order valued at $7,500 requires technical superintendent approval.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2146,
+      "retrieval_hit": true,
+      "passed": false,
+      "correct": false,
+      "grounded": true,
+      "fact_score": 0.5,
+      "det_facts": [
+        true,
+        false
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "missing expected facts ['Above USD 2,000 and up to USD 10,000']",
+      "category": "prompt_defect",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#6"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        },
+        {
+          "label": "S5",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#1"
+        },
+        {
+          "label": "S6",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A08",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What are the conditions for using non-OEM spares for criticality B and C parts?",
+      "expected_behavior": "answer",
+      "answer": "Non-OEM alternatives for criticality B and C spares may be used if the price is at least 15 percent lower than the OEM offer.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "spares_catalogue.csv"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2636,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        false,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "missing"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 3,
+      "judge_flags_overruled": [
+        "Non-OEM alternatives for criticality B and C spares may be used if the price is at least 15 percent lower than the OEM offer."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#4"
+        },
+        {
+          "label": "S2",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#15"
+        },
+        {
+          "label": "S3",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#20"
+        },
+        {
+          "label": "S4",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#32"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#34"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#14"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A09",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What types of engines are Oceanic Engine Parts authorized to distribute spare parts for?",
+      "expected_behavior": "answer",
+      "answer": "Oceanic Engine Parts is authorized to distribute spare parts for two-stroke and four-stroke main and auxiliary engines.",
+      "refused": false,
+      "cited_docs": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "retrieved_docs": [
+        "spares_catalogue.csv",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2071,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#41"
+        },
+        {
+          "label": "S3",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#31"
+        },
+        {
+          "label": "S4",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#23"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#32"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#29"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A10",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the warranty period for parts based on the date of delivery or installation?",
+      "expected_behavior": "answer",
+      "answer": "The warranty period varies between suppliers. MarineTech offers a 12 months warranty from the date of delivery or 6 months from installation, whichever comes first. Oceanic provides an 18-month warranty from the date of delivery.",
+      "refused": false,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [
+        "output was not valid contract JSON (repaired)",
+        "invalid citation labels ['MarineTech policy', 'Oceanic policy']",
+        "answer without citations"
+      ],
+      "latency_s": 0.0,
+      "tokens": 3349,
+      "retrieval_hit": true,
+      "passed": false,
+      "correct": true,
+      "grounded": false,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "missing",
+        "stated"
+      ],
+      "llm_unsupported": [
+        "The warranty period varies between suppliers."
+      ],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": false,
+      "reason": "did not cite the expected source; judge flagged unsupported claims: ['The warranty period varies between suppliers.']",
+      "category": "hallucination",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#5"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#5"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#6"
+        },
+        {
+          "label": "S4",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#7"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#6"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A11",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the discount for orders above a certain amount?",
+      "expected_behavior": "answer",
+      "answer": "Orders above USD 15,000 receive an 8 percent discount from MarineTech, while orders above USD 10,000 get a 4 percent discount from Oceanic, excluding turbocharger parts.",
+      "refused": false,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [
+        "output was not valid contract JSON (repaired)",
+        "answer without citations"
+      ],
+      "latency_s": 0.0,
+      "tokens": 2453,
+      "retrieval_hit": true,
+      "passed": false,
+      "correct": true,
+      "grounded": false,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "Orders above USD 15,000 receive an 8 percent discount from MarineTech"
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": false,
+      "reason": "did not cite the expected source",
+      "category": "prompt_defect",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S3",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#3"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A12",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What conditions allow for air freight in procurement?",
+      "expected_behavior": "answer",
+      "answer": "Air freight is permitted for emergency purchases or when the required-by date for criticality A items is less than 10 days away.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [
+        "output was not valid contract JSON (repaired)"
+      ],
+      "latency_s": 0.0,
+      "tokens": 2344,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#6"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#4"
+        },
+        {
+          "label": "S3",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#1"
+        },
+        {
+          "label": "S4",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#0"
+        },
+        {
+          "label": "S5",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#5"
+        },
+        {
+          "label": "S6",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "E02",
+      "type": "ambiguous",
+      "split": "dev",
+      "question": "Is there a 4% off for orders over $10k?",
+      "expected_behavior": "answer",
+      "answer": "Yes, there is a 4% discount for orders above USD 10,000.",
+      "refused": false,
+      "cited_docs": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1481,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        false,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#4"
+        },
+        {
+          "label": "S5",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "E03",
+      "type": "ambiguous",
+      "split": "dev",
+      "question": "Can we use air freight for urgent orders or crit A stuff? What if we need it in <10 days?",
+      "expected_behavior": "answer",
+      "answer": "Air freight is allowed for emergency purchases or criticality A items with a required-by date less than 10 days away. You can contact the emergency line at +31 10 555 0100 for urgent orders.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "spares_catalogue.csv",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2222,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "You can contact the emergency line at +31 10 555 0100 for urgent orders"
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#6"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#4"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        },
+        {
+          "label": "S4",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#7"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#6"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "G01",
+      "type": "gap_probe",
+      "split": "dev",
+      "question": "How can I set up email notifications for my ship spare-parts orders to keep track of their status?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2579,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#0"
+        },
+        {
+          "label": "S2",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#6"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#0"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#0"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#7"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "G02",
+      "type": "gap_probe",
+      "split": "dev",
+      "question": "What are the typical live stock levels for a cargo ship to ensure operational readiness?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2139,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#5"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#0"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#4"
+        },
+        {
+          "label": "S4",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#0"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#4"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "M01",
+      "type": "multi_doc",
+      "split": "dev",
+      "question": "What approval is needed for an order of turbocharger parts worth $12,000?",
+      "expected_behavior": "answer",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "spares_catalogue.csv",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2628,
+      "retrieval_hit": true,
+      "passed": false,
+      "correct": false,
+      "grounded": null,
+      "fact_score": 0.0,
+      "reason": "refused although the answer is in the documents",
+      "category": "wrong_refusal",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#36"
+        },
+        {
+          "label": "S3",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#35"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#37"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#38"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "M02",
+      "type": "multi_doc",
+      "split": "dev",
+      "question": "What approval is needed for a purchase order of $7,000, and what discount would apply?",
+      "expected_behavior": "answer",
+      "answer": "For a purchase order of $7,000, technical superintendent approval is needed. A 5% volume discount applies as the order value exceeds $5,000.",
+      "refused": false,
+      "cited_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf"
+      ],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2706,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 0.5,
+      "det_facts": [
+        false,
+        false
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 2,
+      "judge_flags_overruled": [
+        "For a purchase order of $7,000"
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#6"
+        },
+        {
+          "label": "S5",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#1"
+        },
+        {
+          "label": "S6",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O02",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "How do I handle the personal data of our crew members when ordering spare parts?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "spares_catalogue.csv",
+        "supplier_marinetech_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 3417,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#0"
+        },
+        {
+          "label": "S2",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#1"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#6"
+        },
+        {
+          "label": "S4",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#36"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#40"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#35"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O03",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "What are the detailed company policies for handling supplier disputes?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2328,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#0"
+        },
+        {
+          "label": "S3",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#8"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#7"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#1"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#6"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O04",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "How should we prioritize suppliers based on their reliability and pricing?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact the responsible team.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2340,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "procurement_policy.pdf",
+          "chunk_id": "procurement_policy.pdf#8"
+        },
+        {
+          "label": "S2",
+          "doc": "supplier_marinetech_terms.pdf",
+          "chunk_id": "supplier_marinetech_terms.pdf#2"
+        },
+        {
+          "label": "S3",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#6"
+        },
+        {
+          "label": "S5",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#3"
+        },
+        {
+          "label": "S6",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "T01",
+      "type": "tool",
+      "split": "dev",
+      "question": "What is the minimum order quantity for the Main engine exhaust valve spindle (OE-ME-7002) supplied by Oceanic Engine Parts?",
+      "expected_behavior": "answer",
+      "answer": "The minimum order quantity for the Main engine exhaust valve spindle (OE-ME-7002) is 1.",
+      "refused": false,
+      "cited_docs": [
+        "spares_catalogue.csv"
+      ],
+      "retrieved_docs": [
+        "spares_catalogue.csv",
+        "supplier_oceanic_terms.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 3800,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "expected tool csv_lookup was not called",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#23"
+        },
+        {
+          "label": "S2",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#26"
+        },
+        {
+          "label": "S3",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#22"
+        },
+        {
+          "label": "S4",
+          "doc": "supplier_oceanic_terms.pdf",
+          "chunk_id": "supplier_oceanic_terms.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#24"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#25"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "T03",
+      "type": "tool",
+      "split": "dev",
+      "question": "What is the total unit price in USD for buying 12 units of the Atlas Copco Service air compressor filter element with part number MT-CMP-2004?",
+      "expected_behavior": "answer",
+      "answer": "The total unit price in USD for buying 12 units of the Atlas Copco Service air compressor filter element with part number MT-CMP-2004 is $48.50.",
+      "refused": false,
+      "cited_docs": [
+        "spares_catalogue.csv"
+      ],
+      "retrieved_docs": [
+        "spares_catalogue.csv"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1299,
+      "retrieval_hit": true,
+      "passed": false,
+      "correct": false,
+      "grounded": true,
+      "fact_score": 0.0,
+      "det_facts": [
+        false
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "missing expected facts ['582']; expected tool calculator was not called",
+      "category": "prompt_defect",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#7"
+        },
+        {
+          "label": "S2",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#5"
+        },
+        {
+          "label": "S3",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#4"
+        },
+        {
+          "label": "S4",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#6"
+        },
+        {
+          "label": "S5",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#37"
+        },
+        {
+          "label": "S6",
+          "doc": "spares_catalogue.csv",
+          "chunk_id": "spares_catalogue.csv#34"
+        }
+      ],
+      "tool_results": []
+    }
+  ]
+}

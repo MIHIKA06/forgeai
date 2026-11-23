@@ -171,9 +171,10 @@ def build(brief: str, docs_dir: str | Path, out_dir: str | Path, answers: Option
     _w(out / "budget.json", budget_d)
     with llm.stage("report"):
         run = {"requirements": req, "agent": final, "evalset": ev, "history": hist, "holdout": holdout, "calibration": cal,
-               "tournament": tour, "budget": budget_d, "final_all": final_all}
+               "tournament": tour, "budget": budget_d, "final_all": final_all, "out_dir": out}
         md = write_report(run, log)
     _w(out / "REPORT.md", md)
+    _w(out / "final_results.json", final_all["results"])  # now includes the failure adjudication
     s = final_all["scores"]
     log(f"\nDone in {(time.time()-t0)/60:.1f} min. Final: {s['passed']}/{s['n']} ({s['pass_rate']:.0%}). Report: {out/'REPORT.md'}")
     return {"scorecard": scorecard, "out": str(out)}

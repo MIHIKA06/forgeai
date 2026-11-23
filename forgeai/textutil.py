@@ -38,6 +38,8 @@ def content_words(s: str) -> list[str]:
 
 
 def _stem(w: str) -> str:
+    w = re.sub(r"is(e|ed|es|ing|ation)$", r"iz\1", w)  # British/American: regularised == regularized
+    w = re.sub(r"our$", "or", w) if len(w) > 5 else w  # colour == color
     for suf in ("ing", "ies", "es", "s", "ed", "ly"):
         if len(w) > 4 and w.endswith(suf):
             return w[: -len(suf)]

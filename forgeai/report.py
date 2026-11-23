@@ -33,10 +33,47 @@ def evidence(r: dict) -> str:
     return "; ".join(bits)
 
 
+def adjudicate(failures: list[dict], evalset: dict, agent_dir) -> dict:
+    """Second opinion on every remaining failure: agent error or test/judge error?
+    Uses the judge model with the original passages. Never changes the headline score."""
+    from .config import SETTINGS
+    from .runtime import Agent
+    cases = {c["id"]: c for c in evalset["cases"]}
+    out = {}
+    agent = None
+    for f in failures:
+        c = cases.get(f["id"], {})
+        try:
+            if agent is None:
+                agent = Agent.load(agent_dir / "agent.json")
+            ptxt = "\n\n".join(f"[{p['label']}] ({p['doc']}) {p['text'][:700]}" for p in agent.retrieve(f["question"]))
+            r = llm.chat_json(llm.render("adjudicate", question=f["question"], expected=f["expected_behavior"], facts=json.dumps(c.get("key_facts", [])),
+                                         reason=f["reason"][:300], passages=ptxt[:4500], answer=f["answer"][:1200]),
+                              validate=llm.require_keys("verdict"), model=SETTINGS.judge_model, max_tokens=250)
+            v = str(r.get("verdict", "unclear"))
+            v = v if v in ("agent_error", "test_error", "unclear") else "unclear"
+            reason = str(r.get("reason", ""))
+            # The reviewer is an LLM too, and in practice a lenient one. Deterministic rules it cannot overrule:
+            rule = None
+            if f["expected_behavior"] == "refuse" and not f["refused"]:
+                rule = "answered a question the requirements say must be refused"
+            elif f["expected_behavior"] == "answer" and f["refused"] and f.get("retrieval_hit"):
+                rule = "refused although the source passage (whose key facts were verified at generation) was retrieved"
+            elif c.get("requires_tool") and (f.get("fact_score") or 0) == 0:
+                rule = "tool case: the deterministically computed value is absent from the answer"
+            if rule and v != "agent_error":
+                reason = f"reviewer said {v} ('{reason[:90]}') - overruled: {rule}"
+                v = "agent_error"
+            out[f["id"]] = {"verdict": v, "reason": reason}
+        except Exception as e:
+            out[f["id"]] = {"verdict": "unclear", "reason": f"adjudication failed: {e}"}
+    return out
+
+
 def explain_failures(failures: list[dict], history: list[dict]) -> dict:
     if not failures:
         return {"summary": "No remaining failures on this split. Treat this with suspicion: the eval set is auto-generated and may be too easy - see the eval audit and holdout results.", "per_case": []}
-    ftxt = "\n".join(f"- {f['id']} ({f['type']}, {f['category']}): Q: {f['question']} | A: {f['answer'][:220]} | judge: {f['reason'][:220]} | evidence: {evidence(f)}"
+    ftxt = "\n".join(f"- {f['id']} ({f['type']}, {f['category']}): Q: {f['question']} | A: {f['answer'][:220]} | judge: {f['reason'][:220]} | evidence: {evidence(f)} | independent reviewer: {f.get('adjudication', 'n/a')}"
                      for f in failures[:14])
     fixes = "\n".join(f"- iter {h['iteration']}: {fx['category']} -> {fx['target']}: {fx['what_changed']} ({'accepted' if h['accepted'] else 'reverted'})"
                       for h in history for fx in h.get("fixes", [])) or "(none)"
@@ -66,6 +103,9 @@ def write_report(run: dict, log: Callable = print) -> str:
     hv0, hfin = hold.get("v0", {}).get("scores"), hold.get("final", {}).get("scores")
     all_final = run["final_all"]["scores"]
     remaining = [r for r in run["final_all"]["results"] if not r["passed"]]
+    adj = adjudicate(remaining, ev, run["out_dir"]) if remaining else {}
+    for r in remaining:
+        r["adjudication"] = adj.get(r["id"], {}).get("verdict", "unclear")
     expl = explain_failures(remaining, hist)
     why = {p.get("id"): p.get("why", "") for p in expl.get("per_case", []) if isinstance(p, dict)}
 
@@ -80,11 +120,20 @@ def write_report(run: dict, log: Callable = print) -> str:
             L.append(f"> ⚠️ **Possible overfitting:** dev improved by {dev_gain:+.0%} but holdout only by {hold_gain:+.0%}. Treat the dev number as optimistic.")
     if all_final["pass_rate"] >= 0.98:
         L.append("> ⚠️ A ~100% score on an auto-generated eval set is more likely a sign the tests are too easy than that the agent is perfect. Check the eval audit below.")
+    n_test = sum(1 for v in adj.values() if v["verdict"] == "test_error")
+    n_agent = sum(1 for v in adj.values() if v["verdict"] == "agent_error")
+    if remaining:
+        hi = (all_final["passed"] + n_test) / all_final["n"]
+        L.append(f"> **Failure audit:** of {len(remaining)} failures, an independent reviewer (judge model + source passages) attributes "
+                 f"**{n_agent} to the agent**, **{n_test} to flawed auto-generated tests or grading**, {len(remaining) - n_agent - n_test} unclear. "
+                 f"The strict score above stands; if every suspected test error were excused it would be at most {_pct(hi)}. Both numbers are reported because the eval set is itself machine-generated.")
     L += ["", "## What still fails and why", "", expl.get("summary", ""), ""]
     if remaining:
-        L += ["| Case | Type | Split | Category | Judge verdict | Deterministic evidence | LLM root-cause hypothesis |", "|---|---|---|---|---|---|---|"]
+        L += ["| Case | Type | Split | Category | Judge verdict | Deterministic evidence | Independent review | Root-cause hypothesis |", "|---|---|---|---|---|---|---|---|"]
         for r in remaining:
-            L.append(f"| {r['id']} | {r['type']} | {r['split']} | {r['category']} | {r['reason'][:120].replace('|', '/')} | {evidence(r)[:160].replace('|', '/')} | {why.get(r['id'], '').replace('|', '/')} |")
+            a = adj.get(r["id"], {})
+            L.append(f"| {r['id']} | {r['type']} | {r['split']} | {r['category']} | {r['reason'][:120].replace('|', '/')} | {evidence(r)[:150].replace('|', '/')} | "
+                     f"**{a.get('verdict', '–')}**: {a.get('reason', '')[:140].replace('|', '/')} | {why.get(r['id'], '').replace('|', '/')} |")
         L += ["", "<details><summary>Questions and answers of the failing cases</summary>", ""]
         for r in remaining:
             L.append(f"- **{r['id']}** Q: {r['question']}  \n  A: {r['answer'][:400]}")

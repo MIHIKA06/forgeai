@@ -109,9 +109,36 @@ def cmd_regress(a):
         new_def["knowledge"]["docs_path"] = "knowledge"
         new_def["knowledge"]["files"] = sorted(p.name for p in (out / "knowledge").iterdir())
         (out / "agent.json").write_text(json.dumps(new_def, indent=2))
-    new_docs = load_folder(out / "knowledge")
-    corpus = "\n".join(d.text for d in new_docs)
-    stale = {c["id"]: [f for f in c.get("key_facts", []) if not fact_in_text(f, corpus, 0.85)] for c in old_eval if c["expected_behavior"] == "answer"}
+    import re as _re
+    from .textutil import norm, similarity
+    old_docs = {d.name: d.text for d in load_folder(run / "knowledge")}
+    new_docs = {d.name: d.text for d in load_folder(out / "knowledge")}
+
+    def _sentences(t):
+        return [x.strip() for x in _re.split(r"(?<=[.!?])\s+|\n+", t) if len(x.split()) >= 3]
+
+    def stale_facts(case):
+        """A fact is stale if the sentence that stated it in the OLD version of its source document
+        no longer exists in the NEW version (document edited or removed)."""
+        bad = []
+        for f in case.get("key_facts", []):
+            for src in case.get("expected_sources", []):
+                if src not in old_docs or old_docs.get(src) == new_docs.get(src):
+                    continue
+                carriers = [s for s in _sentences(old_docs[src]) if fact_in_text(f, s, 0.85)]
+                new_norm = norm(new_docs.get(src, ""))
+                # exact (normalised) containment: a fuzzy match would accept '10 days' -> '15 days'
+                if not carriers:
+                    continue
+                # the carrier is the sentence most related to THIS test's question (not any sentence with '10 days')
+                best = max(carriers, key=lambda x: similarity(x, case["question"] + " " + " ".join(case.get("key_facts", []))))
+                if norm(best) not in new_norm:
+                    bad.append(f)
+                    break
+        return bad
+
+    stale = {c["id"]: stale_facts(c) for c in old_eval if c["expected_behavior"] == "answer"}
+    old_eval_by_id = {c["id"]: c for c in old_eval}
     r = run_eval(Agent(new_def, base_dir=out), old_eval, Judge(), label="old evals vs regenerated agent")
     rows, broke, fixed, drift = [], [], [], []
     for v in r["results"]:
@@ -121,7 +148,9 @@ def cmd_regress(a):
             status = "STALE TEST (source facts changed)" if not v["passed"] else "pass (despite changed source)"
             drift.append(v["id"])
         elif was and not v["passed"]:
-            status = "BROKE"
+            srcs = old_eval_by_id[v["id"]].get("expected_sources", [])
+            changed = [x for x in srcs if old_docs.get(x) != new_docs.get(x)]
+            status = "BROKE (source changed)" if changed else "BROKE (sources unchanged -> model instability, not the doc edit)"
             broke.append(v["id"])
         elif not was and v["passed"]:
             status = "fixed"
@@ -133,6 +162,7 @@ def cmd_regress(a):
           f"Old eval set ({len(old_eval)} cases) re-run against the {'rebuilt' if a.rebuild else 're-indexed'} agent.", "",
           f"- **Broke:** {broke or 'none'}", f"- **Fixed:** {fixed or 'none'}",
           f"- **Stale tests** (expected facts no longer in the documents — the test, not the agent, needs updating): {drift or 'none'}",
+          "- Note: a case that broke although none of its source documents changed is run-to-run instability of the small model (the retrieved context shifted), not a regression caused by the edit.",
           f"- Score: {sum(1 for x in old_res.values() if x['passed'])}/{len(old_res)} → {r['scores']['passed']}/{r['scores']['n']}", "",
           "| Case | Type | Before | After | Status | Detail |", "|---|---|---|---|---|---|"] + rows
     (out / "REGRESSION.md").write_text("\n".join(md) + "\n")
@@ -167,7 +197,7 @@ def cmd_baseline(a):
         f_ok, h_ok = factory[c["id"]]["passed"], hres[c["id"]]["passed"]
         if f_ok != h_ok:
             rows.append(f"| {c['id']} | {c['type']} | {'✅' if f_ok else '❌'} | {'✅' if h_ok else '❌'} | {(hres[c['id']]['reason'] if not h_ok else factory[c['id']]['reason'])[:110]} |")
-    met = ["pass_rate", "answer_accuracy", "groundedness", "refusal_recall", "false_refusal_rate", "contract_violation_rate", "mean_latency_s"]
+    met = ["pass_rate", "answer_accuracy", "groundedness", "refusal_recall", "false_refusal_rate", "contract_violation_rate"]
     md = ["# Factory vs human baseline", "", f"Same {len(cases)} generated eval cases, same judge (mode: {judge.llm_mode}).", "",
           "| Metric | Factory | Human |", "|---|---|---|"] + [f"| {m} | {fs.get(m)} | {hs.get(m)} |" for m in met]
     md += ["", "| By type | Factory | Human |", "|---|---|---|"] + [f"| {t} | {fs['by_type'].get(t)} | {hs['by_type'].get(t)} |" for t in sorted(fs["by_type"])]

@@ -188,7 +188,7 @@ def optimize(defn: dict, base_dir, req: dict, dev_cases: list[dict], judge: Judg
             log("  no untried targeted fix left - stopping")
             break
         cand = copy.deepcopy(cand)
-        cand["version"] = cur_def.get("version", 0) + 1
+        cand["version"] = max(h["version"] for h in history) + 1
         new = run_eval(Agent(cand, base_dir=base_dir), dev_cases, judge, log, label=f"iter {it} (v{cand['version']})")
         before, after = cur["scores"]["passed"], new["scores"]["passed"]
         prev_pass = {r["id"] for r in cur["results"] if r["passed"]}

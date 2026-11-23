@@ -1,0 +1,1121 @@
+{
+  "iteration": 0,
+  "scores": {
+    "n": 17,
+    "passed": 16,
+    "pass_rate": 0.941,
+    "answer_accuracy": 1.0,
+    "groundedness": 1.0,
+    "refusal_recall": 0.8,
+    "false_refusal_rate": 0.0,
+    "retrieval_hit_rate": 0.917,
+    "contract_violation_rate": 0.0,
+    "mean_fact_score": 0.931,
+    "judge_disagreements": 11,
+    "judge_flags_overruled": 8,
+    "by_type": {
+      "ambiguous": "2/2",
+      "answerable": "8/8",
+      "gap_probe": "2/2",
+      "multi_doc": "2/2",
+      "out_of_scope": "2/3"
+    },
+    "failure_categories": {
+      "hallucination": 1
+    },
+    "mean_latency_s": 0.0
+  },
+  "results": [
+    {
+      "id": "A02",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What are the deadlines for submitting expense claims and what happens if a claim is submitted after 90 days?",
+      "expected_behavior": "answer",
+      "answer": "Expense claims must be submitted through the HRMS portal within 30 days of returning from travel. Claims submitted after 30 days require department head approval. Claims older than 90 days are not reimbursed.",
+      "refused": false,
+      "cited_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 935,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#7"
+        },
+        {
+          "label": "S2",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#5"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#8"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#6"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A03",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What are the conditions for Shore-based employees to work from home?",
+      "expected_behavior": "answer",
+      "answer": "Shore-based employees can work from home up to 2 days per week after completing their probation period. They must agree with their reporting manager and record this in the HRMS attendance module by Friday of the previous week. The company provides a laptop and headset, but other home-office equipment is not reimbursed. Internet reimbursement is INR 1,000 per month.",
+      "refused": false,
+      "cited_docs": [
+        "workplace_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1871,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 2,
+      "judge_flags_overruled": [
+        "The company provides a laptop and headset, but other home-office equipment is not reimbursed.",
+        "Internet reimbursement is INR 1,000 per month."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#1"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#0"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A06",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the nightly limit for Grade E3 employees in non-metro cities?",
+      "expected_behavior": "answer",
+      "answer": "The nightly limit for Grade E3 employees in non-metro cities is INR 4,000 per night, including taxes.",
+      "refused": false,
+      "cited_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2833,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#4"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#5"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A08",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the maximum number of days of unused annual leave that can be carried forward?",
+      "expected_behavior": "answer",
+      "answer": "The maximum number of days of unused annual leave that can be carried forward is 10 days. Any balance above 10 days lapses on 31 March unless the HR Head approves an exception in writing.",
+      "refused": false,
+      "cited_docs": [
+        "leave_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1011,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "Any balance above 10 days lapses on 31 March unless the HR Head approves an exception in writing."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#5"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#3"
+        },
+        {
+          "label": "S3",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#6"
+        },
+        {
+          "label": "S4",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#4"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A09",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What is the rate for personal two-wheeler usage for business travel?",
+      "expected_behavior": "answer",
+      "answer": "The rate for personal two-wheeler usage for business travel is INR 6 per kilometre.",
+      "refused": false,
+      "cited_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1720,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#6"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#1"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        },
+        {
+          "label": "S4",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#9"
+        },
+        {
+          "label": "S5",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A10",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What are the requirements for accessing company data while working remotely?",
+      "expected_behavior": "answer",
+      "answer": "To access company data while working remotely, employees must use company-issued laptops connected through the corporate VPN. Personal devices or personal cloud accounts must not store vessel and crew personal data. If a laptop is lost or stolen, it must be reported to the IT helpdesk within 24 hours.",
+      "refused": false,
+      "cited_docs": [
+        "workplace_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1815,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A11",
+      "type": "answerable",
+      "split": "dev",
+      "question": "How much paid leave do female employees get for their first two children?",
+      "expected_behavior": "answer",
+      "answer": "Female employees are entitled to 26 weeks of paid maternity leave for the first two children.",
+      "refused": false,
+      "cited_docs": [
+        "leave_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1776,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 0,
+      "judge_flags_overruled": [],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#8"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#6"
+        },
+        {
+          "label": "S3",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#9"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#3"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "A12",
+      "type": "answerable",
+      "split": "dev",
+      "question": "What are the core working hours for Shore-based employees?",
+      "expected_behavior": "answer",
+      "answer": "The core working hours for Shore-based employees are from 10:00 to 16:00 India Standard Time, as specified in the workplace policy.",
+      "refused": false,
+      "cited_docs": [
+        "workplace_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2709,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true
+      ],
+      "llm_facts": [
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "The core working hours for Shore-based employees are from 10:00 to 16:00 India Standard Time, as specified in the workplace policy."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#1"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#3"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "E02",
+      "type": "ambiguous",
+      "split": "dev",
+      "question": "Is this leave policy for all Mumba and Chennai guys or just the permanent ones?",
+      "expected_behavior": "answer",
+      "answer": "This leave policy applies to permanent shore-based employees working in the Mumbai and Chennai offices. It does not cover seafarers or contract staff.",
+      "refused": false,
+      "cited_docs": [
+        "leave_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1811,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "It does not cover seafarers or contract staff."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#0"
+        },
+        {
+          "label": "S3",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#3"
+        },
+        {
+          "label": "S4",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#7"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "E03",
+      "type": "ambiguous",
+      "split": "dev",
+      "question": "Hey, how long do we need to give notice after we confirm? E1 to E3, right? Or is it something else for the big bosses?",
+      "expected_behavior": "answer",
+      "answer": "After confirmation, the notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above. This is as per the workplace policy.",
+      "refused": false,
+      "cited_docs": [
+        "workplace_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1668,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 1.0,
+      "det_facts": [
+        true,
+        true
+      ],
+      "llm_facts": [
+        "stated",
+        "missing"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 2,
+      "judge_flags_overruled": [
+        "This is as per the workplace policy"
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#5"
+        },
+        {
+          "label": "S2",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#4"
+        },
+        {
+          "label": "S3",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#6"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#6"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#8"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "G01",
+      "type": "gap_probe",
+      "split": "dev",
+      "question": "What are the components of the salary structure in the Mumbai and Chennai offices?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact HR Department.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1870,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#8"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#6"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "G03",
+      "type": "gap_probe",
+      "split": "dev",
+      "question": "How is the annual performance bonus determined for employees in the Mumbai and Chennai offices?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact HR Department.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1775,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#3"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "M01",
+      "type": "multi_doc",
+      "split": "dev",
+      "question": "What is the process for an employee to take annual leave during the dry-docking season, and how does it differ from regular leave requests?",
+      "expected_behavior": "answer",
+      "answer": "During the dry-docking season (October to January), the Technical department may restrict leave of more than 5 consecutive days. For regular annual leave, employees must apply through the HRMS portal at least 7 calendar days in advance for absences up to 3 days, and at least 21 calendar days in advance for longer absences. During the dry-docking season, the approval process may be more stringent for longer leave requests.",
+      "refused": false,
+      "cited_docs": [
+        "leave_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2027,
+      "retrieval_hit": false,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 0.67,
+      "det_facts": [
+        false,
+        false,
+        false
+      ],
+      "llm_facts": [
+        "stated",
+        "missing",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 3,
+      "judge_flags_overruled": [
+        "For regular annual leave, employees must apply through the HRMS portal at least 7 calendar days in advance for absences up to 3 days, and at least 21 calendar days in advance for longer absences."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#4"
+        },
+        {
+          "label": "S3",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#2"
+        },
+        {
+          "label": "S4",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#5"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#7"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "M02",
+      "type": "multi_doc",
+      "split": "dev",
+      "question": "What are the travel class restrictions for Shore-based employees during standard working hours?",
+      "expected_behavior": "answer",
+      "answer": "During standard working hours, Shore-based employees must travel in economy class on all flights shorter than 6 hours. For flights 6 hours or longer, business class is permitted for employees of Grade M3 and above. Tickets must be booked through the company travel desk; personally booked tickets are not reimbursed unless during an emergency vessel attendance.",
+      "refused": false,
+      "cited_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1979,
+      "retrieval_hit": true,
+      "passed": true,
+      "correct": true,
+      "grounded": true,
+      "fact_score": 0.5,
+      "det_facts": [
+        true,
+        false
+      ],
+      "llm_facts": [
+        "stated",
+        "stated"
+      ],
+      "llm_unsupported": [],
+      "judge_disagreements": 1,
+      "judge_flags_overruled": [
+        "Tickets must be booked through the company travel desk; personally booked tickets are not reimbursed unless during an emergency vessel attendance."
+      ],
+      "ungrounded_numbers": [],
+      "cited_expected": true,
+      "reason": "correct and grounded",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#1"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#1"
+        },
+        {
+          "label": "S4",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#1"
+        },
+        {
+          "label": "S5",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O02",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "How can I request a salary review if I feel I deserve a raise?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact HR Department.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 2577,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#7"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#8"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#4"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#2"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O03",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "Will I be promoted to a senior position if I consistently perform well?",
+      "expected_behavior": "refuse",
+      "answer": "I can't answer that from the documents I have access to. Please contact HR Department.",
+      "refused": true,
+      "cited_docs": [],
+      "retrieved_docs": [
+        "leave_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 874,
+      "passed": true,
+      "correct": true,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "refused as expected",
+      "category": null,
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#4"
+        },
+        {
+          "label": "S2",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#6"
+        },
+        {
+          "label": "S3",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#0"
+        },
+        {
+          "label": "S4",
+          "doc": "workplace_policy.pdf",
+          "chunk_id": "workplace_policy.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "leave_policy.pdf",
+          "chunk_id": "leave_policy.pdf#0"
+        }
+      ],
+      "tool_results": []
+    },
+    {
+      "id": "O04",
+      "type": "out_of_scope",
+      "split": "dev",
+      "question": "What are the company's policies regarding medical emergencies while on a business trip?",
+      "expected_behavior": "refuse",
+      "answer": "For medical emergencies, employees should seek necessary medical attention immediately. The company will cover reasonable and necessary medical expenses, but pre-approval for travel is required through the Travel Request form in the HRMS portal. In case of an emergency, contact your manager or the HR Department for guidance.",
+      "refused": false,
+      "cited_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "retrieved_docs": [
+        "travel_expense_policy.pdf"
+      ],
+      "tools_called": [],
+      "contract_violations": [],
+      "latency_s": 0.0,
+      "tokens": 1750,
+      "passed": false,
+      "correct": false,
+      "grounded": null,
+      "fact_score": null,
+      "reason": "answered a question it should have refused",
+      "category": "hallucination",
+      "passages": [
+        {
+          "label": "S1",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#3"
+        },
+        {
+          "label": "S2",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#9"
+        },
+        {
+          "label": "S3",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#1"
+        },
+        {
+          "label": "S4",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#2"
+        },
+        {
+          "label": "S5",
+          "doc": "travel_expense_policy.pdf",
+          "chunk_id": "travel_expense_policy.pdf#8"
+        }
+      ],
+      "tool_results": []
+    }
+  ]
+}

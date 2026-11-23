@@ -1,0 +1,87 @@
+[
+  {
+    "iteration": 0,
+    "version": 0,
+    "scores": {
+      "n": 17,
+      "passed": 16,
+      "pass_rate": 0.941,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 0.8,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 0.917,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.931,
+      "judge_disagreements": 11,
+      "judge_flags_overruled": 8,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "2/2",
+        "out_of_scope": "2/3"
+      },
+      "failure_categories": {
+        "hallucination": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "fixes": [],
+    "accepted": true,
+    "note": "baseline (tournament winner)"
+  },
+  {
+    "iteration": 1,
+    "version": 1,
+    "fixes": [
+      {
+        "target": "prompt:grounding_rules",
+        "what_changed": "Added refusal to answer out-of-scope questions and escalation policy for specific issues.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -10,3 +10,3 @@\n ## Grounding rules\n-Answers only from provided CONTEXT passages; uses [S1], [S2], etc. labels; never invents facts, numbers, or policies; cites passages when policies conflict\n+Answers only from provided CONTEXT passages; uses [S1], [S2], etc. labels; never invents facts, numbers, or policies; cites passages when policies conflict; refuses to answer questions outside scope; escalates to HR Department for disciplinary actions, performance reviews, salary increments, promotions, medical advice, or legal advice.\n ",
+        "category": "hallucination",
+        "addresses": [
+          "O04"
+        ],
+        "why": "The assistant stated things not supported by the passages, or answered questions that are out of scope instead of refusing.",
+        "fixed_cases": [
+          "O04"
+        ]
+      }
+    ],
+    "score_before": 0.941,
+    "score_after": 1.0,
+    "scores": {
+      "n": 17,
+      "passed": 17,
+      "pass_rate": 1.0,
+      "answer_accuracy": 1.0,
+      "groundedness": 1.0,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 0.917,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.931,
+      "judge_disagreements": 12,
+      "judge_flags_overruled": 9,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "2/2",
+        "out_of_scope": "3/3"
+      },
+      "failure_categories": {},
+      "mean_latency_s": 0.0
+    },
+    "accepted": true,
+    "newly_passing": [
+      "O04"
+    ],
+    "newly_failing": [],
+    "stop_reason": "all dev cases pass"
+  }
+]

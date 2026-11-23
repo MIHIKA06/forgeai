@@ -47,7 +47,10 @@ with st.sidebar:
             return str(e)[:120]
 
     ok = _ping(SETTINGS.base_url, SETTINGS.model)
-    st.success("LLM endpoint reachable") if ok is True else st.error(f"LLM endpoint not reachable: {ok}")
+    if ok is True:
+        st.success("LLM endpoint reachable")
+    else:
+        st.error(f"LLM endpoint not reachable: {ok}")
 
 
 def list_runs() -> list[Path]:
@@ -198,7 +201,8 @@ with tab_chat:
     from forgeai.runtime import Agent
 
     runs = list_runs()
-    choice = st.selectbox("Agent definition", [str(r / "agent.json") for r in runs] + ["(upload)"], key="chat_agent")
+    choice = st.selectbox("Agent definition", [str(r / "agent.json") for r in runs] + ["(upload)"], key="chat_agent",
+                          format_func=lambda s: s if s == "(upload)" else str(Path(s).relative_to(ROOT)))
     up = st.file_uploader("agent.json", type="json") if choice == "(upload)" else None
 
     @st.cache_resource(show_spinner="Loading agent…")

@@ -1,0 +1,191 @@
+[
+  {
+    "iteration": 0,
+    "version": 0,
+    "scores": {
+      "n": 19,
+      "passed": 14,
+      "pass_rate": 0.737,
+      "answer_accuracy": 0.786,
+      "groundedness": 0.846,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.071,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.211,
+      "mean_fact_score": 0.786,
+      "judge_disagreements": 9,
+      "judge_flags_overruled": 4,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "5/8",
+        "gap_probe": "2/2",
+        "multi_doc": "1/2",
+        "out_of_scope": "3/3",
+        "tool": "1/2"
+      },
+      "failure_categories": {
+        "prompt_defect": 3,
+        "hallucination": 1,
+        "wrong_refusal": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "fixes": [],
+    "accepted": true,
+    "note": "baseline (tournament winner)"
+  },
+  {
+    "iteration": 1,
+    "version": 1,
+    "fixes": [
+      {
+        "target": "prompt:tool_use",
+        "what_changed": "Added a rule to ensure all answers include necessary facts and cite sources as required to address the failure category.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -21 +21,2 @@\n - calculator: The agent must compute numbers (totals, discounts, pro-rata entitlements, conversions).\n+- Ensure all answers include necessary facts and cite sources as required.",
+        "category": "prompt_defect",
+        "addresses": [
+          "A06",
+          "A11",
+          "T03"
+        ],
+        "why": "The right passages were retrieved and the assistant answered, but the answer missed required facts, omitted citations, ignored an available tool, or broke the output format.",
+        "fixed_cases": [
+          "A11"
+        ]
+      },
+      {
+        "target": "prompt:grounding_rules",
+        "what_changed": "Added rules to refuse out-of-scope questions and cite sources, addressing the hallucination issue.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -10,3 +10,3 @@\n ## Grounding rules\n-[S1] Use only the provided CONTEXT passages. [S2] Never invent facts, numbers, or policies. [S3] If passages conflict, state the conflict clearly.\n+[S1] Use only the provided CONTEXT passages. [S2] Never invent facts, numbers, or policies. [S3] If passages conflict, state the conflict clearly. [S4] Refuse to answer questions outside the scope of spare parts procurement. [S5] Always cite sources when quoting exact figures.\n ",
+        "category": "hallucination",
+        "addresses": [
+          "A10"
+        ],
+        "why": "The assistant stated things not supported by the passages, or answered questions that are out of scope instead of refusing.",
+        "fixed_cases": []
+      }
+    ],
+    "score_before": 0.737,
+    "score_after": 0.632,
+    "scores": {
+      "n": 19,
+      "passed": 12,
+      "pass_rate": 0.632,
+      "answer_accuracy": 0.786,
+      "groundedness": 0.692,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.071,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.474,
+      "mean_fact_score": 0.786,
+      "judge_disagreements": 12,
+      "judge_flags_overruled": 7,
+      "by_type": {
+        "ambiguous": "1/2",
+        "answerable": "4/8",
+        "gap_probe": "2/2",
+        "multi_doc": "1/2",
+        "out_of_scope": "3/3",
+        "tool": "1/2"
+      },
+      "failure_categories": {
+        "prompt_defect": 3,
+        "hallucination": 3,
+        "wrong_refusal": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "accepted": false,
+    "newly_passing": [
+      "A11"
+    ],
+    "newly_failing": [
+      "A09",
+      "A12",
+      "E03"
+    ],
+    "note": "REVERTED: fix lowered the dev score"
+  },
+  {
+    "iteration": 2,
+    "version": 2,
+    "fixes": [
+      {
+        "target": "prompt:answer_style",
+        "what_changed": "Added tool usage and source citation to ensure all required facts are included.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -16,3 +16,3 @@\n ## Answer style\n-Provide answers in 1-2 sentences, then key conditions or exceptions. Quote exact figures from the passages when applicable.\n+Provide answers in 1-2 sentences, then key conditions or exceptions. Quote exact figures from the passages when applicable. Always use the available tools for calculations. Cite the source of quoted figures.\n ",
+        "category": "prompt_defect",
+        "addresses": [
+          "A06",
+          "A11",
+          "T03"
+        ],
+        "why": "The right passages were retrieved and the assistant answered, but the answer missed required facts, omitted citations, ignored an available tool, or broke the output format.",
+        "fixed_cases": [
+          "A11"
+        ]
+      },
+      {
+        "target": "prompt:refusal_policy",
+        "what_changed": "Added refusal of information not supported by context and questions outside the scope to prevent hallucination.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -13,3 +13,3 @@\n ## Refusal policy\n-Refuse topics: Legal Advice, Personal Data, Sensitive Information, Detailed Policy Explanations, Escalation Procedures, Supplier Prioritization, Multiple Supplier Tracking. Must refuse: track the status of orders, Live Stock Levels. Escalate to the responsible team.\n+Refuse topics: Legal Advice, Personal Data, Sensitive Information, Detailed Policy Explanations, Escalation Procedures, Supplier Prioritization, Multiple Supplier Tracking. Must refuse: track the status of orders, Live Stock Levels. Do not provide information not supported by context. Refuse questions outside the scope of spare parts procurement.\n ",
+        "category": "hallucination",
+        "addresses": [
+          "A10"
+        ],
+        "why": "The assistant stated things not supported by the passages, or answered questions that are out of scope instead of refusing.",
+        "fixed_cases": []
+      }
+    ],
+    "score_before": 0.737,
+    "score_after": 0.737,
+    "scores": {
+      "n": 19,
+      "passed": 14,
+      "pass_rate": 0.737,
+      "answer_accuracy": 0.786,
+      "groundedness": 0.846,
+      "refusal_recall": 1.0,
+      "false_refusal_rate": 0.071,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.368,
+      "mean_fact_score": 0.786,
+      "judge_disagreements": 9,
+      "judge_flags_overruled": 4,
+      "by_type": {
+        "ambiguous": "1/2",
+        "answerable": "6/8",
+        "gap_probe": "2/2",
+        "multi_doc": "1/2",
+        "out_of_scope": "3/3",
+        "tool": "1/2"
+      },
+      "failure_categories": {
+        "prompt_defect": 2,
+        "hallucination": 2,
+        "wrong_refusal": 1
+      },
+      "mean_latency_s": 0.0
+    },
+    "accepted": true,
+    "newly_passing": [
+      "A11"
+    ],
+    "newly_failing": [
+      "E03"
+    ],
+    "stop_reason": "early stop: two iterations without improvement (budget guard)"
+  }
+]

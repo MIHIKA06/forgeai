@@ -5,7 +5,7 @@ Rules:
 - Auto-generated tests can be wrong. If a question does not actually require its expected facts, or a refusal test asks about something the documents arguably cover, say the test is questionable.
 - Name the case ids.
 
-REMAINING FAILURES (with judge verdict and deterministic evidence):
+REMAINING FAILURES (with judge verdict, deterministic evidence and an independent reviewer verdict - where the reviewer says test_error, say the test is likely flawed):
 {{failures}}
 
 FIXES ALREADY TRIED BY THE OPTIMISER:
