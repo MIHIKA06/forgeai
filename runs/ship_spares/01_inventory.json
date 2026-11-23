@@ -1,0 +1,93 @@
+[
+  {
+    "name": "procurement_policy.pdf",
+    "kind": "pdf",
+    "pages": 2,
+    "columns": [],
+    "rows": 0,
+    "chars": 2792,
+    "words": 441,
+    "summary": "This document is a procurement policy for spare parts for vessels under technical management at Seacrest Ship Management Pvt Ltd, applicable to chief engineers, technical superintendents, fleet managers, and the purchase team.",
+    "topics": [
+      "Purpose",
+      "Requisitions",
+      "Approval Limits",
+      "Critical Spares",
+      "Minimum Onboard Stock",
+      "Emergency Purchases",
+      "Delivery and Receipt",
+      "Supplier Selection"
+    ],
+    "doc_type": "policy"
+  },
+  {
+    "name": "spares_catalogue.csv",
+    "kind": "table",
+    "pages": 1,
+    "columns": [
+      "part_no",
+      "description",
+      "equipment",
+      "maker",
+      "unit_price_usd",
+      "lead_time_days",
+      "min_order_qty",
+      "supplier",
+      "criticality"
+    ],
+    "rows": 42,
+    "chars": 9389,
+    "words": 1054,
+    "summary": "This document is a spares catalogue for various equipment used in marine and industrial settings, intended for inventory and procurement management.",
+    "topics": [
+      "spares",
+      "equipment parts",
+      "fuel oil separator",
+      "air compressor",
+      "fire pump",
+      "ballast pump",
+      "cooling pump",
+      "boiler components"
+    ],
+    "doc_type": "catalogue"
+  },
+  {
+    "name": "supplier_marinetech_terms.pdf",
+    "kind": "pdf",
+    "pages": 1,
+    "columns": [],
+    "rows": 0,
+    "chars": 1708,
+    "words": 265,
+    "summary": "This document outlines the supply terms for Marinetech Spares Pte Ltd, specifically for a framework agreement with Seacrest Ship Management.",
+    "topics": [
+      "Product Range",
+      "Prices and Discounts",
+      "Payment Terms",
+      "Delivery",
+      "Warranty",
+      "Returns",
+      "Contacts"
+    ],
+    "doc_type": "contract"
+  },
+  {
+    "name": "supplier_oceanic_terms.pdf",
+    "kind": "pdf",
+    "pages": 1,
+    "columns": [],
+    "rows": 0,
+    "chars": 1490,
+    "words": 238,
+    "summary": "This document outlines the supply terms for Oceanic Engine Parts BV, detailing the product range, pricing, payment, delivery, warranty, and return policies for Seacrest Ship Management.",
+    "topics": [
+      "Product Range",
+      "Prices and Discounts",
+      "Payment Terms",
+      "Delivery and Urgent Dispatch",
+      "Warranty",
+      "Returns"
+    ],
+    "doc_type": "contract"
+  }
+]

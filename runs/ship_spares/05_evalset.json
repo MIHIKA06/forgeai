@@ -1,0 +1,518 @@
+{
+  "cases": [
+    {
+      "type": "answerable",
+      "question": "What conditions apply to returning unused parts?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_marinetech_terms.pdf#6"
+      ],
+      "key_facts": [
+        "Unused parts in original packaging",
+        "30 days of delivery",
+        "15 percent of the part value",
+        "parts specially ordered from the manufacturer cannot be returned"
+      ],
+      "reference_answer": "Unused parts in original packaging may be returned within 30 days of delivery, subject to a 15 percent restocking fee, and specially ordered parts cannot be returned.",
+      "generated_by": "evalgen_answerable",
+      "id": "A01",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the consequence for a supplier with on-time delivery below 85 percent for two consecutive reviews?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#8"
+      ],
+      "key_facts": [
+        "placed on probation"
+      ],
+      "reference_answer": "The supplier is placed on probation.",
+      "generated_by": "evalgen_answerable",
+      "id": "A02",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the minimum order value for 8% discount and what currency is used?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_marinetech_terms.pdf#2"
+      ],
+      "key_facts": [
+        "USD 15,000",
+        "US dollars"
+      ],
+      "reference_answer": "Orders above USD 15,000 receive an 8% discount in US dollars.",
+      "generated_by": "evalgen_answerable",
+      "id": "A03",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What action must the chief engineer take if the onboard stock of a criticality A item falls below the minimum?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#5"
+      ],
+      "key_facts": [
+        "raise a requisition",
+        "24 hours"
+      ],
+      "reference_answer": "The chief engineer must raise a requisition within 24 hours.",
+      "generated_by": "evalgen_answerable",
+      "id": "A04",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the surcharge for urgent dispatch of criticality A items?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_oceanic_terms.pdf#4"
+      ],
+      "key_facts": [
+        "20 percent of the order value",
+        "48 hours"
+      ],
+      "reference_answer": "20 percent of the order value for surcharge within 48 hours",
+      "generated_by": "evalgen_answerable",
+      "id": "A05",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What approval is needed for a purchase order valued at $7,500?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#3"
+      ],
+      "key_facts": [
+        "technical superintendent approval",
+        "Above USD 2,000 and up to USD 10,000"
+      ],
+      "reference_answer": "Technical superintendent approval.",
+      "generated_by": "evalgen_answerable",
+      "id": "A06",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What additional charge is applied for delivery to ports other than Singapore or Rotterdam?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_marinetech_terms.pdf#4"
+      ],
+      "key_facts": [
+        "Delivery to any other port is charged at cost plus 10 percent",
+        "10 percent"
+      ],
+      "reference_answer": "10 percent additional charge is applied for delivery to ports other than Singapore or Rotterdam.",
+      "generated_by": "evalgen_answerable",
+      "id": "A07",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What are the conditions for using non-OEM spares for criticality B and C parts?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#4"
+      ],
+      "key_facts": [
+        "OEM-certified parts",
+        "15 percent lower than the OEM offer"
+      ],
+      "reference_answer": "Non-OEM alternatives for criticality B and C spares are permitted if they are at least 15 percent lower in price than the OEM offer.",
+      "generated_by": "evalgen_answerable",
+      "id": "A08",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What types of engines are Oceanic Engine Parts authorized to distribute spare parts for?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_oceanic_terms.pdf#1"
+      ],
+      "key_facts": [
+        "two-stroke and four-stroke main and auxiliary engines"
+      ],
+      "reference_answer": "Two-stroke and four-stroke main and auxiliary engines.",
+      "generated_by": "evalgen_answerable",
+      "id": "A09",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the warranty period for parts based on the date of delivery or installation?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_marinetech_terms.pdf#5"
+      ],
+      "key_facts": [
+        "12 months from the date of delivery",
+        "6 months from installation",
+        "whichever comes first"
+      ],
+      "reference_answer": "The warranty period is 12 months from the date of delivery or 6 months from installation, whichever comes first.",
+      "generated_by": "evalgen_answerable",
+      "id": "A10",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the discount for orders above a certain amount?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_oceanic_terms.pdf#2"
+      ],
+      "key_facts": [
+        "4 percent",
+        "orders above USD 10,000"
+      ],
+      "reference_answer": "A discount of 4 percent applies to orders above USD 10,000.",
+      "generated_by": "evalgen_answerable",
+      "id": "A11",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What conditions allow for air freight in procurement?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#6"
+      ],
+      "key_facts": [
+        "emergency purchases",
+        "criticality A items",
+        "required-by date less than 10 days away"
+      ],
+      "reference_answer": "Air freight is permitted for emergency purchases or criticality A items with a required-by date less than 10 days away.",
+      "generated_by": "evalgen_answerable",
+      "id": "A12",
+      "split": "dev"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_marinetech_terms.pdf#6"
+      ],
+      "key_facts": [
+        "Unused parts in original packaging",
+        "30 days of delivery",
+        "15 percent of the part value",
+        "parts specially ordered from the manufacturer cannot be returned"
+      ],
+      "reference_answer": "Unused parts in original packaging may be returned within 30 days of delivery, subject to a 15 percent restocking fee, and specially ordered parts cannot be returned.",
+      "type": "ambiguous",
+      "question": "Can I return unused parts? I mean, like, if they're in the box and all, how long do I have? And what if it's like, 15% of the cost or something?",
+      "derived_from": "What conditions apply to returning unused parts?",
+      "ambiguity": "vague wording, informal phrasing, unclear specific conditions",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E01",
+      "split": "holdout"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_oceanic_terms.pdf"
+      ],
+      "source_chunks": [
+        "supplier_oceanic_terms.pdf#2"
+      ],
+      "key_facts": [
+        "4 percent",
+        "orders above USD 10,000"
+      ],
+      "reference_answer": "A discount of 4 percent applies to orders above USD 10,000.",
+      "type": "ambiguous",
+      "question": "Is there a 4% off for orders over $10k?",
+      "derived_from": "What is the discount for orders above a certain amount?",
+      "ambiguity": "uses informal phrasing and a typo ($ instead of USD)",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E02",
+      "split": "dev"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#6"
+      ],
+      "key_facts": [
+        "emergency purchases",
+        "criticality A items",
+        "required-by date less than 10 days away"
+      ],
+      "reference_answer": "Air freight is permitted for emergency purchases or criticality A items with a required-by date less than 10 days away.",
+      "type": "ambiguous",
+      "question": "Can we use air freight for urgent orders or crit A stuff? What if we need it in <10 days?",
+      "derived_from": "What conditions allow for air freight in procurement?",
+      "ambiguity": "use of 'urgent orders' instead of 'emergency purchases', 'crit A stuff' as shorthand for 'criticality A items', and '<10 days' for 'required-by date less than 10 days away'",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E03",
+      "split": "dev"
+    },
+    {
+      "type": "gap_probe",
+      "question": "How can I set up email notifications for my ship spare-parts orders to keep track of their status?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "track the status of orders",
+      "generated_by": "evalgen_gap",
+      "id": "G01",
+      "split": "dev"
+    },
+    {
+      "type": "gap_probe",
+      "question": "What are the typical live stock levels for a cargo ship to ensure operational readiness?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Live Stock Levels",
+      "generated_by": "evalgen_gap",
+      "id": "G02",
+      "split": "dev"
+    },
+    {
+      "type": "multi_doc",
+      "question": "What approval is needed for an order of turbocharger parts worth $12,000?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "supplier_oceanic_terms.pdf",
+        "procurement_policy.pdf"
+      ],
+      "source_chunks": [
+        "supplier_oceanic_terms.pdf#2",
+        "procurement_policy.pdf#3"
+      ],
+      "key_facts": [
+        "There is no discount on turbocharger parts.",
+        "Prices are as per the catalogue in US dollars, ex-works Rotterdam.",
+        "Above USD 2,000 and up to USD 10,000: technical superintendent approval.",
+        "Purchase orders are approved according to the total order value in US dollars."
+      ],
+      "reference_answer": "Technical superintendent approval",
+      "generated_by": "evalgen_multidoc",
+      "id": "M01",
+      "split": "dev"
+    },
+    {
+      "type": "multi_doc",
+      "question": "What approval is needed for a purchase order of $7,000, and what discount would apply?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "procurement_policy.pdf",
+        "supplier_marinetech_terms.pdf"
+      ],
+      "source_chunks": [
+        "procurement_policy.pdf#3",
+        "supplier_marinetech_terms.pdf#2"
+      ],
+      "key_facts": [
+        "Above USD 2,000 and up to USD 10,000: technical superintendent approval.",
+        "5 percent on orders above USD 5,000."
+      ],
+      "reference_answer": "Technical superintendent approval, 5 percent discount.",
+      "generated_by": "evalgen_multidoc",
+      "id": "M02",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "Can you provide legal advice on the contract terms with our suppliers?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Legal Advice",
+      "generated_by": "evalgen_oos",
+      "id": "O01",
+      "split": "holdout"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "How do I handle the personal data of our crew members when ordering spare parts?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Personal Data",
+      "generated_by": "evalgen_oos",
+      "id": "O02",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "What are the detailed company policies for handling supplier disputes?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Detailed Policy Explanations",
+      "generated_by": "evalgen_oos",
+      "id": "O03",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "How should we prioritize suppliers based on their reliability and pricing?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Supplier Prioritization",
+      "generated_by": "evalgen_oos",
+      "id": "O04",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "Can you track multiple suppliers' delivery statuses for a single order?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Multiple Supplier Tracking",
+      "generated_by": "evalgen_oos",
+      "id": "O05",
+      "split": "holdout"
+    },
+    {
+      "type": "tool",
+      "question": "What is the minimum order quantity for the Main engine exhaust valve spindle (OE-ME-7002) supplied by Oceanic Engine Parts?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "spares_catalogue.csv"
+      ],
+      "key_facts": [
+        "1"
+      ],
+      "requires_tool": "csv_lookup",
+      "row_id": "OE-ME-7002",
+      "generated_by": "evalgen_table",
+      "note": "expected value computed deterministically from row OE-ME-7002",
+      "id": "T01",
+      "split": "dev"
+    },
+    {
+      "type": "tool",
+      "question": "What is the total unit price in USD for purchasing 10 units of the Main engine fuel pump plunger and barrel with part number OE-ME-7006 from Oceanic Engine Parts?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "spares_catalogue.csv"
+      ],
+      "key_facts": [
+        "44200"
+      ],
+      "requires_tool": "calculator",
+      "row_id": "OE-ME-7006",
+      "generated_by": "evalgen_table",
+      "note": "expected value computed deterministically from row OE-ME-7006",
+      "id": "T02",
+      "split": "holdout"
+    },
+    {
+      "type": "tool",
+      "question": "What is the total unit price in USD for buying 12 units of the Atlas Copco Service air compressor filter element with part number MT-CMP-2004?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "spares_catalogue.csv"
+      ],
+      "key_facts": [
+        "582"
+      ],
+      "requires_tool": "calculator",
+      "row_id": "MT-CMP-2004",
+      "generated_by": "evalgen_table",
+      "note": "expected value computed deterministically from row MT-CMP-2004",
+      "id": "T03",
+      "split": "dev"
+    }
+  ],
+  "counts": {
+    "answerable": 12,
+    "ambiguous": 3,
+    "gap_probe": 2,
+    "multi_doc": 2,
+    "out_of_scope": 5,
+    "tool": 3
+  },
+  "splits": {
+    "holdout": 8,
+    "dev": 19
+  },
+  "audit": {
+    "summary": {
+      "multi_doc:dropped": 1,
+      "tool:dropped": 1
+    },
+    "events": [
+      {
+        "kind": "multi_doc",
+        "question": "What are the different pricing locations and applicable discounts for orders above USD 10,000?",
+        "action": "dropped",
+        "reason": "key facts not verified in BOTH passages"
+      },
+      {
+        "kind": "tool",
+        "question": "What is the minimum order quantity for the Alfa Laval Fresh water generator anode (part no: MT-PUR-6001)?",
+        "action": "dropped",
+        "reason": "empty or leaks the value"
+      }
+    ]
+  },
+  "prompts": [
+    "evalgen_answerable",
+    "evalgen_multidoc",
+    "evalgen_ambiguous",
+    "evalgen_oos",
+    "evalgen_gap",
+    "evalgen_table",
+    "oos_verify"
+  ]
+}

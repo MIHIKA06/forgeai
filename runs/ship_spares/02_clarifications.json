@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Are there specific approval levels and procurement rules for emergency purchases that need to be integrated into the assistant's responses?",
+    "why": "Determines the necessity to include emergency purchase procedures in the assistant's capabilities.",
+    "answer": "Emergency purchases follow standard approval and procurement rules.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Do you need the assistant to escalate certain types of requests or provide guidance on how to handle them?",
+    "why": "Identifies if the assistant should have escalation capabilities or provide guidance on handling exceptions.",
+    "answer": "The assistant will not escalate requests but will provide practical answers.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Do you require the assistant to provide detailed explanations of the procurement policy or just summaries?",
+    "why": "Affects the level of detail in the assistant's responses.",
+    "answer": "The assistant will provide summaries of the procurement policy.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Are there any specific suppliers that must be prioritized or avoided by the assistant?",
+    "why": "Determines if the assistant should have supplier prioritization or exclusion rules.",
+    "answer": "The assistant will consider all suppliers equally.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Do you need the assistant to track orders from multiple suppliers simultaneously?",
+    "why": "Determines the complexity of the order tracking feature.",
+    "answer": "The assistant will track orders from a single supplier at a time.",
+    "source": "default_assumption"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Are there any specific HR policies or questions that you do not want the assistant to address, such as those related to disciplinary actions or performance reviews?",
+    "why": "Determines in/out of scope topics and what must be refused or escalated.",
+    "answer": "No specific policies or questions are excluded.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Can you confirm if the assistant should provide information on salary increments or promotions, or should these topics be avoided?",
+    "why": "Clarifies in/out of scope topics and what must be refused or escalated.",
+    "answer": "Salary increments and promotions should not be addressed.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Do you prefer the assistant to use a formal tone or a more casual, friendly tone as mentioned in the brief?",
+    "why": "Determines the tone/format of the assistant's responses.",
+    "answer": "The assistant should use a friendly but precise tone.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Is there a specific format or style you would like the assistant to use when answering questions, such as bullet points or numbered lists?",
+    "why": "Determines the format of the assistant's responses.",
+    "answer": "The assistant should provide answers in a clear and concise manner without a specific format.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Are there any additional documents or information that you would like to include in the assistant's knowledge base, such as company culture or employee benefits?",
+    "why": "Expands the knowledge base if necessary.",
+    "answer": "No additional documents or information are needed.",
+    "source": "default_assumption"
+  }
+]

@@ -1,0 +1,155 @@
+{
+  "n_canaries": 20,
+  "llm_judge_accuracy": 1.0,
+  "deterministic_accuracy": 0.9,
+  "llm_verbosity_trap_accuracy": 1.0,
+  "llm_false_accept_rate_on_corrupted": 0.0,
+  "position_consistency": 1.0,
+  "judge_model": "llama3.1:8b",
+  "agent_model": "qwen2.5:7b",
+  "self_preference_guard": "different model family",
+  "details": [
+    {
+      "case": "A09",
+      "canary": "gold",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A09",
+      "canary": "terse_correct",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A09",
+      "canary": "corrupted",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": true
+    },
+    {
+      "case": "A09",
+      "canary": "verbose_wrong",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": true
+    },
+    {
+      "case": "A04",
+      "canary": "gold",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A04",
+      "canary": "terse_correct",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A04",
+      "canary": "corrupted",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "A04",
+      "canary": "verbose_wrong",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "A07",
+      "canary": "gold",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A07",
+      "canary": "terse_correct",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A07",
+      "canary": "corrupted",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "A07",
+      "canary": "verbose_wrong",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "A06",
+      "canary": "gold",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A06",
+      "canary": "terse_correct",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "A06",
+      "canary": "corrupted",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "A06",
+      "canary": "verbose_wrong",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "M01",
+      "canary": "gold",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "M01",
+      "canary": "terse_correct",
+      "expected_pass": true,
+      "llm_pass": true,
+      "det_pass": true
+    },
+    {
+      "case": "M01",
+      "canary": "corrupted",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    },
+    {
+      "case": "M01",
+      "canary": "verbose_wrong",
+      "expected_pass": false,
+      "llm_pass": false,
+      "det_pass": false
+    }
+  ],
+  "llm_mode": "full",
+  "policy": "LLM may credit paraphrased facts the string matcher missed; numbers always checked deterministically"
+}
