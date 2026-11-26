@@ -19,6 +19,15 @@ RUNS = ROOT / "runs"
 DEMOS = ROOT / "demos"
 
 st.set_page_config(page_title="ForgeAI — the agent that builds agents", page_icon="🏭", layout="wide")
+st.markdown(
+    """<style>
+    /* Report tables: compact text that wraps, so wide tables fit the screen instead of scrolling sideways */
+    [data-testid="stMarkdownContainer"] table { font-size: 0.74rem; width: 100%; table-layout: auto; display: table; }
+    [data-testid="stMarkdownContainer"] th, [data-testid="stMarkdownContainer"] td { padding: 3px 5px !important; word-break: normal; overflow-wrap: break-word; }
+    [data-testid="stMarkdownContainer"] pre { font-size: 0.72rem; white-space: pre-wrap; }
+    </style>""",
+    unsafe_allow_html=True,
+)
 
 # Secrets (hosted) -> env, before importing forgeai.config
 try:
