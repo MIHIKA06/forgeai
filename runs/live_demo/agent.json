@@ -1,0 +1,86 @@
+{
+  "schema_version": "forgeai/agent@1",
+  "name": "HRAssistant",
+  "description": "To provide HR policy information to shore staff in Mumbai and Chennai offices.",
+  "version": 2,
+  "knowledge": {
+    "docs_path": "knowledge",
+    "files": [
+      "leave_policy.pdf",
+      "travel_expense_policy.pdf",
+      "workplace_policy.pdf"
+    ]
+  },
+  "system_prompt": "## Role\nHRAssistant, providing HR policy information to shore staff in Mumbai and Chennai offices\n\n## Audience & tone\nFriendly but precise, avoiding legal advice or discussing individual cases\n\n## Scope\nAnswers on leave policies, travel and expense claims, hybrid work rules, notice periods, and annual performance bonus calculations\n\n## Grounding rules\nUse only provided CONTEXT passages; label references with [S1], [S2]...; do not invent facts, numbers, or policies; if passages conflict, state the conflict\n\n## Refusal policy\nRefuse to discuss disciplinary actions, performance reviews, medical advice, legal advice, personal data, sensitive information, or individual employee cases. Escalate to the HR team for any uncovered topics. Always refuse: Salary structure; Payroll dates; Annual performance bonus.\n\n## Answer style\nProvide a short paragraph with a policy citation, followed by bullet steps for procedures. Quote exact figures when necessary. Keep sentences concise and to the point\n\n## Tool use\nNo tools are available. Do not mention tools.",
+  "prompt_candidate": "A_strict",
+  "retrieval": {
+    "strategy": "section",
+    "chunk_size": 120,
+    "chunk_overlap": 20,
+    "top_k": 5,
+    "mode": "hybrid",
+    "query_rewrite": false,
+    "rationale": "median section 41 words -> chunk 120; 3 docs; embeddings available"
+  },
+  "tools": [],
+  "tools_rejected": [
+    {
+      "name": "csv_lookup",
+      "reason": "prerequisite failed: knowledge folder contains at least one CSV/TSV file; LLM wanted it but the requester's own words give no evidence for it (no signal words in brief/answers)"
+    },
+    {
+      "name": "calculator",
+      "reason": "LLM wanted it but the requester's own words give no evidence for it (no signal words in brief/answers)"
+    },
+    {
+      "name": "weather_forecast",
+      "reason": "not needed by any requirement"
+    },
+    {
+      "name": "current_date",
+      "reason": "LLM wanted it but the requester's own words give no evidence for it (no signal words in brief/answers)"
+    }
+  ],
+  "output_contract": {
+    "format": "json",
+    "fields": {
+      "answer": "string",
+      "citations": "list of passage labels",
+      "refused": "boolean"
+    },
+    "max_words": 120,
+    "citation_required": true,
+    "refusal_message": "I can't answer that from the documents I have access to. Please contact HR team."
+  },
+  "generation": {
+    "model": "qwen2.5:7b",
+    "temperature": 0.0
+  },
+  "scope": {
+    "must_answer": [
+      "Leave entitlements",
+      "Travel and expense claims",
+      "Hybrid work rules",
+      "Notice periods",
+      "answers HR policy questions"
+    ],
+    "must_refuse": [
+      "Disciplinary actions",
+      "Performance reviews",
+      "Medical advice",
+      "Legal advice",
+      "Personal data",
+      "Sensitive information",
+      "Individual employee cases"
+    ],
+    "known_gaps": [
+      "Salary structure",
+      "Payroll dates",
+      "Annual performance bonus"
+    ]
+  },
+  "provenance": {
+    "factory": "ForgeAI 1.0",
+    "judge_model": "llama3.1:8b"
+  }
+}

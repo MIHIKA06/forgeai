@@ -1,0 +1,472 @@
+{
+  "cases": [
+    {
+      "type": "answerable",
+      "question": "Which employees are covered by this leave policy?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#1"
+      ],
+      "key_facts": [
+        "permanent shore-based employees",
+        "Mumbai and Chennai offices"
+      ],
+      "reference_answer": "Permanent shore-based employees working in the Mumbai and Chennai offices",
+      "generated_by": "evalgen_answerable",
+      "id": "A01",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What are the deadlines for submitting expense claims, and what happens if a claim is submitted after 30 days?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "travel_expense_policy.pdf"
+      ],
+      "source_chunks": [
+        "travel_expense_policy.pdf#7"
+      ],
+      "key_facts": [
+        "within 30 days of returning",
+        "claims submitted after 30 days require department head approval",
+        "claims older than 90 days are not reimbursed"
+      ],
+      "reference_answer": "Expense claims must be submitted within 30 days of returning, and claims submitted after 30 days require department head approval, while claims older than 90 days are not reimbursed.",
+      "generated_by": "evalgen_answerable",
+      "id": "A02",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What are the hybrid work rules for employees in the fleet operations desk?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#2"
+      ],
+      "key_facts": [
+        "not eligible for hybrid work"
+      ],
+      "reference_answer": "Employees in the fleet operations desk are not eligible for hybrid work.",
+      "generated_by": "evalgen_answerable",
+      "id": "A03",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the notice period for employees after confirmation?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#5"
+      ],
+      "key_facts": [
+        "60 days for grades E1 to E3",
+        "90 days for grades M1 and above"
+      ],
+      "reference_answer": "The notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above after confirmation.",
+      "generated_by": "evalgen_answerable",
+      "id": "A04",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "How many days of casual leave do employees get per year and for what purpose?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#7"
+      ],
+      "key_facts": [
+        "6 days",
+        "urgent personal matters"
+      ],
+      "reference_answer": "Employees receive 6 days of casual leave per year for urgent personal matters.",
+      "generated_by": "evalgen_answerable",
+      "id": "A05",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the nightly limit for Grade E3 employees in non-metro cities for hotel accommodation?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "travel_expense_policy.pdf"
+      ],
+      "source_chunks": [
+        "travel_expense_policy.pdf#4"
+      ],
+      "key_facts": [
+        "INR 4,000 per night"
+      ],
+      "reference_answer": "The nightly limit for Grade E3 employees in non-metro cities is INR 4,000.",
+      "generated_by": "evalgen_answerable",
+      "id": "A06",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the process for resolving a grievance if it is not resolved by the manager?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#7"
+      ],
+      "key_facts": [
+        "raise a grievance with their reporting manager",
+        "escalate in writing to the HR Head"
+      ],
+      "reference_answer": "Employees should first raise a grievance with their reporting manager and if unresolved within 10 working days, escalate in writing to the HR Head.",
+      "generated_by": "evalgen_answerable",
+      "id": "A07",
+      "split": "holdout"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the maximum number of days of unused annual leave that can be carried forward?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#5"
+      ],
+      "key_facts": [
+        "10 days"
+      ],
+      "reference_answer": "A maximum of 10 days of unused annual leave may be carried forward into the next leave year.",
+      "generated_by": "evalgen_answerable",
+      "id": "A08",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What is the reimbursement rate for a personal two-wheeler for business travel?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "travel_expense_policy.pdf"
+      ],
+      "source_chunks": [
+        "travel_expense_policy.pdf#6"
+      ],
+      "key_facts": [
+        "INR 6 per kilometre"
+      ],
+      "reference_answer": "INR 6 per kilometre",
+      "generated_by": "evalgen_answerable",
+      "id": "A09",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What are the requirements for accessing company data remotely?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#3"
+      ],
+      "key_facts": [
+        "company-issued laptops",
+        "corporate VPN"
+      ],
+      "reference_answer": "Company data may be accessed only on company-issued laptops connected through the corporate VPN.",
+      "generated_by": "evalgen_answerable",
+      "id": "A10",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "How many weeks of paid leave are given to female employees for the first two children?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#8"
+      ],
+      "key_facts": [
+        "26 weeks",
+        "first two children"
+      ],
+      "reference_answer": "Female employees are entitled to 26 weeks of paid maternity leave for the first two children.",
+      "generated_by": "evalgen_answerable",
+      "id": "A11",
+      "split": "dev"
+    },
+    {
+      "type": "answerable",
+      "question": "What are the core working hours for most employees in the Shore staff offices?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#1"
+      ],
+      "key_facts": [
+        "10:00 to 16:00 India Standard Time"
+      ],
+      "reference_answer": "Core hours are 10:00 to 16:00 India Standard Time.",
+      "generated_by": "evalgen_answerable",
+      "id": "A12",
+      "split": "dev"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "travel_expense_policy.pdf"
+      ],
+      "source_chunks": [
+        "travel_expense_policy.pdf#6"
+      ],
+      "key_facts": [
+        "INR 6 per kilometre"
+      ],
+      "reference_answer": "INR 6 per kilometre",
+      "type": "ambiguous",
+      "question": "Reimbursement for bike is it 6 rs per km?",
+      "derived_from": "What is the reimbursement rate for a personal two-wheeler for business travel?",
+      "ambiguity": "use of 'rs' instead of 'INR', abbreviation of INR, vague wording 'bike' instead of specifying 'personal two-wheeler', and the question mark at the end makes it seem like a casual inquiry",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E01",
+      "split": "holdout"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#1"
+      ],
+      "key_facts": [
+        "permanent shore-based employees",
+        "Mumbai and Chennai offices"
+      ],
+      "reference_answer": "Permanent shore-based employees working in the Mumbai and Chennai offices",
+      "type": "ambiguous",
+      "question": "Is this leave policy for all mumbai and chennai office workers? or just the regular guys?",
+      "derived_from": "Which employees are covered by this leave policy?",
+      "ambiguity": "vague wording, informal phrasing, use of 'regular guys' as a potentially ambiguous term",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E02",
+      "split": "dev"
+    },
+    {
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "workplace_policy.pdf#5"
+      ],
+      "key_facts": [
+        "60 days for grades E1 to E3",
+        "90 days for grades M1 and above"
+      ],
+      "reference_answer": "The notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above after confirmation.",
+      "type": "ambiguous",
+      "question": "Hey, how long do we need to give notice after we confirm? E1 to E3, right? Or is it something else for the big bosses?",
+      "derived_from": "What is the notice period for employees after confirmation?",
+      "ambiguity": "vague wording, abbreviation (E1 to E3), and indirect reference to different grades",
+      "generated_by": "evalgen_ambiguous",
+      "id": "E03",
+      "split": "dev"
+    },
+    {
+      "type": "gap_probe",
+      "question": "What are the typical components of a salary structure in the Mumbai and Chennai offices?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Salary structure",
+      "generated_by": "evalgen_gap",
+      "id": "G01",
+      "split": "dev"
+    },
+    {
+      "type": "gap_probe",
+      "question": "What are the typical payroll dates for processing final settlements and unused annual leave for the Mumbai and Chennai offices?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Payroll dates",
+      "generated_by": "evalgen_gap",
+      "id": "G02",
+      "split": "holdout"
+    },
+    {
+      "type": "gap_probe",
+      "question": "What is the process for granting an annual performance bonus, and when is it typically awarded?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Annual performance bonus",
+      "generated_by": "evalgen_gap",
+      "id": "G03",
+      "split": "dev"
+    },
+    {
+      "type": "multi_doc",
+      "question": "What is the process for an employee to take annual leave during the dry-docking season, and how much notice is required for a trip that requires approval from the Chief Financial Officer?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "leave_policy.pdf",
+        "travel_expense_policy.pdf"
+      ],
+      "source_chunks": [
+        "leave_policy.pdf#3",
+        "travel_expense_policy.pdf#2"
+      ],
+      "key_facts": [
+        "Leave is approved by the reporting manager.",
+        "International travel requires approval by the department head and the Chief Financial Officer."
+      ],
+      "reference_answer": "",
+      "generated_by": "evalgen_multidoc",
+      "id": "M01",
+      "split": "dev"
+    },
+    {
+      "type": "multi_doc",
+      "question": "What are the travel class restrictions for employees in Mumbai and Chennai during core hours?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "travel_expense_policy.pdf",
+        "workplace_policy.pdf"
+      ],
+      "source_chunks": [
+        "travel_expense_policy.pdf#3",
+        "workplace_policy.pdf#1"
+      ],
+      "key_facts": [
+        "Employees travel in economy class on all flights shorter than 6 hours.",
+        "The standard working week is Monday to Friday, 40 hours per week."
+      ],
+      "reference_answer": "",
+      "generated_by": "evalgen_multidoc",
+      "id": "M02",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "Can you provide a disciplinary action procedure for the Mumbai office?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Disciplinary actions",
+      "generated_by": "evalgen_oos",
+      "id": "O01",
+      "split": "holdout"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "How should I handle a performance review with an underperforming team member?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Performance reviews",
+      "generated_by": "evalgen_oos",
+      "id": "O02",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "Can you give legal advice on a contract dispute with a vendor?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Legal advice",
+      "generated_by": "evalgen_oos",
+      "id": "O03",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "must_refuse",
+      "question": "How do I handle an employee's personal medical information?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Personal data",
+      "generated_by": "evalgen_oos",
+      "id": "O04",
+      "split": "dev"
+    },
+    {
+      "type": "out_of_scope",
+      "subtype": "adjacent",
+      "question": "What is the policy on hybrid work for the Mumbai office?",
+      "expected_behavior": "refuse",
+      "expected_sources": [],
+      "key_facts": [],
+      "topic": "Hybrid work",
+      "generated_by": "evalgen_oos",
+      "id": "O05",
+      "split": "holdout"
+    }
+  ],
+  "counts": {
+    "answerable": 12,
+    "ambiguous": 3,
+    "gap_probe": 3,
+    "multi_doc": 2,
+    "out_of_scope": 5
+  },
+  "splits": {
+    "holdout": 8,
+    "dev": 17
+  },
+  "audit": {
+    "summary": {
+      "multi_doc:dropped": 1,
+      "ambiguous:dropped": 1,
+      "out_of_scope:dropped": 1
+    },
+    "events": [
+      {
+        "kind": "multi_doc",
+        "question": "What leave benefits are available to parents under the company's policy, and what are the rules regarding gifts that employees must declare?",
+        "action": "dropped",
+        "reason": "key facts not verified in BOTH passages"
+      },
+      {
+        "kind": "ambiguous",
+        "question": "Can ur annual leave carry over for more than 10 days??",
+        "action": "dropped",
+        "reason": "rewrite leaks the answer"
+      },
+      {
+        "kind": "out_of_scope",
+        "question": "What should I do if I feel unwell and need to take a sick leave?",
+        "action": "dropped",
+        "reason": "documents actually answer it (must_refuse): The passages provide information on the requirements for taking sick leave, including the need for a medical certificate for absences of more than 2 consecutive days and the requirement to inform the manager before 10:30 on the first day of absence."
+      }
+    ]
+  },
+  "prompts": [
+    "evalgen_answerable",
+    "evalgen_multidoc",
+    "evalgen_ambiguous",
+    "evalgen_oos",
+    "evalgen_gap",
+    "evalgen_table",
+    "oos_verify"
+  ]
+}

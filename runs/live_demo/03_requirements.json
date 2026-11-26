@@ -1,0 +1,211 @@
+{
+  "agent_name": "HRAssistant",
+  "purpose": "To provide HR policy information to shore staff in Mumbai and Chennai offices.",
+  "audience": "Shore staff in Mumbai and Chennai offices",
+  "tone": "Friendly but precise, avoiding legal advice or discussing individual cases.",
+  "scope": "The assistant will provide information on leave policies, travel and expense claims, hybrid work rules, notice periods, salary structure, payroll dates, and annual performance bonus calculations.",
+  "must_answer_topics": [
+    "Leave entitlements",
+    "Travel and expense claims",
+    "Hybrid work rules",
+    "Notice periods",
+    "Salary structure",
+    "Payroll dates",
+    "Annual performance bonus",
+    "answers HR policy questions"
+  ],
+  "must_refuse_topics": [
+    "Disciplinary actions",
+    "Performance reviews",
+    "Medical advice",
+    "Legal advice",
+    "Personal data",
+    "Sensitive information",
+    "Individual employee cases"
+  ],
+  "capabilities_needed": [],
+  "answer_format": "Short paragraph with policy citation; bullet steps for procedures",
+  "escalation_contact": "HR team",
+  "brief_asks": [
+    "answers HR policy questions",
+    "leave entitlements",
+    "travel and expense claims",
+    "hybrid work rules",
+    "notice periods",
+    "salary structure",
+    "payroll dates",
+    "annual performance bonus calculation"
+  ],
+  "restored_asks": [
+    "answers HR policy questions"
+  ],
+  "brief": "I need an assistant that answers HR policy questions for our shore staff in the Mumbai and Chennai offices - things like leave entitlements, travel and expense claims, hybrid work rules and notice periods. Employees should also be able to ask it about their salary structure, payroll dates and how the annual performance bonus is calculated. It should be friendly but precise, and should never give legal advice or discuss individual employees' cases.",
+  "clarifications": [
+    {
+      "question": "Are there any specific HR policies or questions that you do not want the assistant to address, such as those related to disciplinary actions or performance reviews?",
+      "why": "Determines in/out of scope topics and what must be refused or escalated.",
+      "answer": "No specific policies are excluded.",
+      "source": "default_assumption"
+    },
+    {
+      "question": "Can you confirm if the assistant should handle general queries about salary structure, payroll dates, and bonus calculations, or should these be directed to a different system or person?",
+      "why": "Clarifies the scope of salary and bonus-related queries.",
+      "answer": "The assistant will handle general queries about salary structure, payroll dates, and bonus calculations.",
+      "source": "default_assumption"
+    },
+    {
+      "question": "How do you want the assistant to respond if a user asks a question that is not covered by the provided documents?",
+      "why": "Determines the escalation process for out-of-scope questions.",
+      "answer": "The assistant will inform the user that the question is outside its scope and suggest contacting HR.",
+      "source": "default_assumption"
+    },
+    {
+      "question": "Do you have a preferred tone or format for the assistant's responses, such as formal, casual, or a specific style?",
+      "why": "Sets the tone and format for the assistant's responses.",
+      "answer": "The assistant will maintain a friendly but precise tone.",
+      "source": "default_assumption"
+    },
+    {
+      "question": "Are there any specific sections or clauses within the provided documents that you would like to highlight or emphasize in the assistant's responses?",
+      "why": "Identifies key sections to emphasize in the assistant's responses.",
+      "answer": "The assistant will provide general information from the documents without highlighting specific sections.",
+      "source": "default_assumption"
+    }
+  ],
+  "groundability": {
+    "topics": {
+      "Leave entitlements": {
+        "llm_verdict": "supported",
+        "det_verdict": "supported",
+        "det_note": "quote verified, coverage 100%",
+        "final": "supported",
+        "evidence_quote": "This policy sets out the leave entitlements of permanent shore-based employees working in the Mumbai and Chennai offices.",
+        "evidence_doc": "leave_policy.pdf",
+        "missing": "",
+        "top_docs": [
+          "leave_policy.pdf"
+        ]
+      },
+      "Travel and expense claims": {
+        "llm_verdict": "supported",
+        "det_verdict": "supported",
+        "det_note": "quote verified, coverage 100%",
+        "final": "supported",
+        "evidence_quote": "Expense claims must be submitted through the HRMS portal within 30 days of returning from travel.",
+        "evidence_doc": "travel_expense_policy.pdf",
+        "missing": "",
+        "top_docs": [
+          "travel_expense_policy.pdf"
+        ]
+      },
+      "Hybrid work rules": {
+        "llm_verdict": "supported",
+        "det_verdict": "supported",
+        "det_note": "quote verified, coverage 100%",
+        "final": "supported",
+        "evidence_quote": "Eligible employees may work from home up to 2 days per week after completing their probation period.",
+        "evidence_doc": "workplace_policy.pdf",
+        "missing": "",
+        "top_docs": [
+          "workplace_policy.pdf"
+        ]
+      },
+      "Notice periods": {
+        "llm_verdict": "supported",
+        "det_verdict": "supported",
+        "det_note": "quote verified, coverage 100%",
+        "final": "supported",
+        "evidence_quote": "During probation, either party may terminate employment with 15 days notice. After confirmation, the notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above. Notice period may be bought out with the approval of the HR Head.",
+        "evidence_doc": "workplace_policy.pdf",
+        "missing": "",
+        "top_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ]
+      },
+      "Salary structure": {
+        "llm_verdict": "unsupported",
+        "det_verdict": "partial",
+        "det_note": "quote NOT found, coverage 50%",
+        "final": "unsupported",
+        "evidence_quote": "",
+        "evidence_doc": "",
+        "missing": "What is the structure of salaries, including components like basic salary, HRA, and allowances?",
+        "top_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ]
+      },
+      "Payroll dates": {
+        "llm_verdict": "unsupported",
+        "det_verdict": "partial",
+        "det_note": "quote NOT found, coverage 50%",
+        "final": "unsupported",
+        "evidence_quote": "",
+        "evidence_doc": "",
+        "missing": "When are payroll dates for encashing unused annual leave and final settlements?",
+        "top_docs": [
+          "leave_policy.pdf",
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ]
+      },
+      "Annual performance bonus": {
+        "llm_verdict": "unsupported",
+        "det_verdict": "unsupported",
+        "det_note": "no quote, coverage 33%",
+        "final": "unsupported",
+        "evidence_quote": "",
+        "evidence_doc": "",
+        "missing": "What is the process for granting an annual performance bonus, and when is it typically awarded?",
+        "top_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ]
+      },
+      "answers HR policy questions": {
+        "llm_verdict": "partial",
+        "det_verdict": "supported",
+        "det_note": "quote verified, coverage 50%",
+        "final": "partial",
+        "evidence_quote": "This policy covers business travel and reimbursable expenses for shore-based employees, including superintendents attending vessels in port.",
+        "evidence_doc": "travel_expense_policy.pdf",
+        "missing": "What are the specific HR policies for leave and workplace conduct in Mumbai and Chennai offices?",
+        "top_docs": [
+          "leave_policy.pdf",
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ]
+      }
+    },
+    "capabilities": [],
+    "warnings": [
+      "Topic 'Salary structure' is not supported by the documents (What is the structure of salaries, including components like basic salary, HRA, and allowances?).",
+      "Topic 'Payroll dates' is not supported by the documents (When are payroll dates for encashing unused annual leave and final settlements?).",
+      "Topic 'Annual performance bonus' is not supported by the documents (What is the process for granting an annual performance bonus, and when is it typically awarded?)."
+    ],
+    "known_gaps": [
+      "Salary structure",
+      "Payroll dates",
+      "Annual performance bonus"
+    ],
+    "coverage": 0.62,
+    "status": "gaps_flagged"
+  },
+  "supported_topics": [
+    "Leave entitlements",
+    "Travel and expense claims",
+    "Hybrid work rules",
+    "Notice periods",
+    "answers HR policy questions"
+  ],
+  "known_gaps": [
+    "Salary structure",
+    "Payroll dates",
+    "Annual performance bonus"
+  ],
+  "approval": {
+    "status": "auto-approved (unattended run)",
+    "edited": false
+  }
+}

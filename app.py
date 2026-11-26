@@ -54,7 +54,7 @@ with st.sidebar:
 
 
 def list_runs() -> list[Path]:
-    return sorted([p for p in RUNS.glob("*") if (p / "agent.json").exists()], key=lambda p: p.name) if RUNS.exists() else []
+    return sorted([p for p in RUNS.glob("*") if (p / "agent.json").exists() and (p / "scorecard.json").exists()], key=lambda p: p.name) if RUNS.exists() else []
 
 
 tab_factory, tab_runs, tab_chat, tab_about = st.tabs(["🏭 Factory", "📊 Run explorer", "💬 Chat runner", "ℹ️ How it works"])
@@ -62,7 +62,7 @@ tab_factory, tab_runs, tab_chat, tab_about = st.tabs(["🏭 Factory", "📊 Run 
 # ----------------------------------------------------------------------------- factory
 with tab_factory:
     st.subheader("Build an agent")
-    demos = {p.name: p for p in DEMOS.glob("*") if (p / "brief.md").exists()}
+    demos = {p.name: p for p in sorted(DEMOS.glob("*")) if (p / "brief.md").exists()}
     c1, c2 = st.columns([2, 1])
     with c2:
         src = st.radio("Documents", ["Use a demo folder", "Upload files"], horizontal=False)
@@ -176,7 +176,15 @@ with tab_runs:
         it = pd.DataFrame(sc["dev_by_iteration"])[["iteration", "version", "accepted", "pass_rate", "answer_accuracy", "groundedness", "refusal_recall"]]
         st.markdown("**Dev score per iteration**")
         st.line_chart(it.set_index("iteration")[["pass_rate", "answer_accuracy", "groundedness", "refusal_recall"]])
-        sub = st.tabs(["Report", "Requirements", "Agent definition", "Eval set", "Results", "Iteration log", "Judge calibration"])
+        extra = []
+        if (sel / "BASELINE_COMPARISON.md").exists():
+            extra.append(("Factory vs human", sel / "BASELINE_COMPARISON.md"))
+        if (RUNS / f"{sel.name}_regression" / "REGRESSION.md").exists():
+            extra.append(("Docs changed (regression)", RUNS / f"{sel.name}_regression" / "REGRESSION.md"))
+        sub = st.tabs(["Report", "Requirements", "Agent definition", "Eval set", "Results", "Iteration log", "Judge calibration"] + [e[0] for e in extra])
+        for i, (_, path) in enumerate(extra):
+            with sub[7 + i]:
+                st.markdown(path.read_text())
         with sub[0]:
             st.markdown((sel / "REPORT.md").read_text(), unsafe_allow_html=True)
         with sub[1]:

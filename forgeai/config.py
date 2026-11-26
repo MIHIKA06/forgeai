@@ -31,6 +31,9 @@ class Settings:
     use_cache: bool = field(default_factory=lambda: _env("FORGE_CACHE", "1") == "1")
     request_timeout: float = field(default_factory=lambda: float(_env("FORGE_TIMEOUT", "180")))
     seed: int = 7
+    # When FORGE_MODEL is set explicitly (e.g. on a hosted deployment that uses Groq instead of Ollama),
+    # it overrides the model name stored inside saved agent definitions.
+    model_overridden: bool = field(default_factory=lambda: bool(os.environ.get("FORGE_MODEL")))
 
 
 SETTINGS = Settings()

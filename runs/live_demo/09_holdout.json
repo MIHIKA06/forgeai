@@ -1,0 +1,1062 @@
+{
+  "v0": {
+    "scores": {
+      "n": 8,
+      "passed": 5,
+      "pass_rate": 0.625,
+      "answer_accuracy": 1.0,
+      "groundedness": 0.8,
+      "refusal_recall": 0.333,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 1.0,
+      "judge_disagreements": 4,
+      "judge_flags_overruled": 2,
+      "by_type": {
+        "ambiguous": "1/1",
+        "answerable": "3/4",
+        "gap_probe": "1/1",
+        "out_of_scope": "0/2"
+      },
+      "failure_categories": {
+        "hallucination": 3
+      },
+      "mean_latency_s": 5.909
+    },
+    "results": [
+      {
+        "id": "A01",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "Which employees are covered by this leave policy?",
+        "expected_behavior": "answer",
+        "answer": "This leave policy covers permanent shore-based employees working in the Mumbai and Chennai offices. It does not apply to seafarers or contract staff engaged through agencies.",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 2.71,
+        "tokens": 826,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "It does not apply to seafarers or contract staff engaged through agencies."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#0"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#2"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A04",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the notice period for employees after confirmation?",
+        "expected_behavior": "answer",
+        "answer": "After confirmation, the notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above. Notice period may be bought out with the approval of the HR Head.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 8.64,
+        "tokens": 1786,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "Notice period may be bought out with the approval of the HR Head."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A05",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "How many days of casual leave do employees get per year and for what purpose?",
+        "expected_behavior": "answer",
+        "answer": "Employees receive 6 days of casual leave per leave year for urgent personal matters. Casual leave cannot be combined with annual leave and cannot exceed 2 days at a time.",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 6.37,
+        "tokens": 943,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#10"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A07",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the process for resolving a grievance if it is not resolved by the manager?",
+        "expected_behavior": "answer",
+        "answer": "If a grievance is not resolved by the reporting manager within 10 working days, it can be escalated in writing to the HR Head. Anonymous reports of unethical behavior can also be made through the ethics hotline.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 6.98,
+        "tokens": 1655,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          false,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "missing"
+        ],
+        "llm_unsupported": [
+          "Anonymous reports of unethical behavior can also be made through the ethics hotline."
+        ],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "judge flagged unsupported claims: ['Anonymous reports of unethical behavior can also be made through the ethics hotline.']",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#7"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#5"
+          },
+          {
+            "label": "S5",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#4"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "E01",
+        "type": "ambiguous",
+        "split": "holdout",
+        "question": "Reimbursement for bike is it 6 rs per km?",
+        "expected_behavior": "answer",
+        "answer": "Yes, the reimbursement for using a personal two-wheeler for business travel is INR 6 per kilometre.",
+        "refused": false,
+        "cited_docs": [
+          "travel_expense_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 6.09,
+        "tokens": 1963,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true
+        ],
+        "llm_facts": [
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#5"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "G02",
+        "type": "gap_probe",
+        "split": "holdout",
+        "question": "What are the typical payroll dates for processing final settlements and unused annual leave for the Mumbai and Chennai offices?",
+        "expected_behavior": "refuse",
+        "answer": "I can't answer that from the documents I have access to. Please contact HR team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 4.87,
+        "tokens": 959,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#4"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O01",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you provide a disciplinary action procedure for the Mumbai office?",
+        "expected_behavior": "refuse",
+        "answer": "For unauthorised absence, the procedure involves absence exceeding 3 consecutive working days without approved leave. This is documented and reported to the HR team, who will initiate a disciplinary process in line with the Code of Conduct, as outlined in [S1].",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 6.74,
+        "tokens": 1878,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "answered a question it should have refused",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#12"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S3",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#6"
+          },
+          {
+            "label": "S5",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O05",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "What is the policy on hybrid work for the Mumbai office?",
+        "expected_behavior": "refuse",
+        "answer": "Eligible employees in the Mumbai office may work from home up to 2 days per week after completing their probation period. They must agree with their reporting manager and record this in the HRMS attendance module by Friday of the previous week. Home-office internet reimbursement is INR 1,000 per month, and the company provides a laptop and headset.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 4.87,
+        "tokens": 1886,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "answered a question it should have refused",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#0"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#1"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#0"
+          }
+        ],
+        "tool_results": []
+      }
+    ]
+  },
+  "final": {
+    "scores": {
+      "n": 8,
+      "passed": 5,
+      "pass_rate": 0.625,
+      "answer_accuracy": 1.0,
+      "groundedness": 0.8,
+      "refusal_recall": 0.333,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 1.0,
+      "judge_disagreements": 4,
+      "judge_flags_overruled": 2,
+      "by_type": {
+        "ambiguous": "1/1",
+        "answerable": "3/4",
+        "gap_probe": "1/1",
+        "out_of_scope": "0/2"
+      },
+      "failure_categories": {
+        "hallucination": 3
+      },
+      "mean_latency_s": 5.445
+    },
+    "results": [
+      {
+        "id": "A01",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "Which employees are covered by this leave policy?",
+        "expected_behavior": "answer",
+        "answer": "This leave policy covers permanent shore-based employees working in the Mumbai and Chennai offices. It does not apply to seafarers or contract staff engaged through agencies.",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 2.74,
+        "tokens": 825,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "It does not apply to seafarers or contract staff engaged through agencies."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#0"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#2"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A04",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the notice period for employees after confirmation?",
+        "expected_behavior": "answer",
+        "answer": "After confirmation, the notice period is 60 days for grades E1 to E3 and 90 days for grades M1 and above. Notice period may be bought out with the approval of the HR Head.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 8.24,
+        "tokens": 1784,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 1,
+        "judge_flags_overruled": [
+          "Notice period may be bought out with the approval of the HR Head."
+        ],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A05",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "How many days of casual leave do employees get per year and for what purpose?",
+        "expected_behavior": "answer",
+        "answer": "Employees receive 6 days of casual leave per leave year for urgent personal matters. Casual leave cannot be combined with annual leave and cannot exceed 2 days at a time.",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 5.5,
+        "tokens": 942,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#10"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "A07",
+        "type": "answerable",
+        "split": "holdout",
+        "question": "What is the process for resolving a grievance if it is not resolved by the manager?",
+        "expected_behavior": "answer",
+        "answer": "If a grievance is not resolved by the reporting manager within 10 working days, it can be escalated in writing to the HR Head. Anonymous reports of unethical behavior can also be made through the ethics hotline.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 5.7,
+        "tokens": 1654,
+        "retrieval_hit": true,
+        "passed": false,
+        "correct": true,
+        "grounded": false,
+        "fact_score": 1.0,
+        "det_facts": [
+          false,
+          true
+        ],
+        "llm_facts": [
+          "stated",
+          "missing"
+        ],
+        "llm_unsupported": [
+          "Anonymous reports of unethical behavior can also be made through the ethics hotline."
+        ],
+        "judge_disagreements": 2,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "judge flagged unsupported claims: ['Anonymous reports of unethical behavior can also be made through the ethics hotline.']",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#7"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#4"
+          },
+          {
+            "label": "S3",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#6"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#5"
+          },
+          {
+            "label": "S5",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#4"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "E01",
+        "type": "ambiguous",
+        "split": "holdout",
+        "question": "Reimbursement for bike is it 6 rs per km?",
+        "expected_behavior": "answer",
+        "answer": "Yes, the reimbursement for using a personal two-wheeler for business travel is INR 6 per kilometre.",
+        "refused": false,
+        "cited_docs": [
+          "travel_expense_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 5.67,
+        "tokens": 1961,
+        "retrieval_hit": true,
+        "passed": true,
+        "correct": true,
+        "grounded": true,
+        "fact_score": 1.0,
+        "det_facts": [
+          true
+        ],
+        "llm_facts": [
+          "stated"
+        ],
+        "llm_unsupported": [],
+        "judge_disagreements": 0,
+        "judge_flags_overruled": [],
+        "ungrounded_numbers": [],
+        "cited_expected": true,
+        "reason": "correct and grounded",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#6"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S3",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#4"
+          },
+          {
+            "label": "S4",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#3"
+          },
+          {
+            "label": "S5",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#5"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "G02",
+        "type": "gap_probe",
+        "split": "holdout",
+        "question": "What are the typical payroll dates for processing final settlements and unused annual leave for the Mumbai and Chennai offices?",
+        "expected_behavior": "refuse",
+        "answer": "I can't answer that from the documents I have access to. Please contact HR team.",
+        "refused": true,
+        "cited_docs": [],
+        "retrieved_docs": [
+          "leave_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 3.98,
+        "tokens": 958,
+        "passed": true,
+        "correct": true,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "refused as expected",
+        "category": null,
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#5"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#3"
+          },
+          {
+            "label": "S4",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#4"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#7"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O01",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "Can you provide a disciplinary action procedure for the Mumbai office?",
+        "expected_behavior": "refuse",
+        "answer": "For unauthorised absence, the procedure involves absence exceeding 3 consecutive working days without approved leave. This is treated as unauthorised absence and may lead to disciplinary action under the Code of Conduct. Employees should ensure all leave is approved in advance.",
+        "refused": false,
+        "cited_docs": [
+          "leave_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "travel_expense_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 6.41,
+        "tokens": 1875,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "answered a question it should have refused",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#12"
+          },
+          {
+            "label": "S2",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S3",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#6"
+          },
+          {
+            "label": "S5",
+            "doc": "travel_expense_policy.pdf",
+            "chunk_id": "travel_expense_policy.pdf#6"
+          }
+        ],
+        "tool_results": []
+      },
+      {
+        "id": "O05",
+        "type": "out_of_scope",
+        "split": "holdout",
+        "question": "What is the policy on hybrid work for the Mumbai office?",
+        "expected_behavior": "refuse",
+        "answer": "Eligible employees in the Mumbai office may work from home up to 2 days per week after completing their probation period. They must agree with their reporting manager and record this in the HRMS attendance module by Friday of the previous week. Home-office internet reimbursement is INR 1,000 per month, and the company provides a laptop and headset.",
+        "refused": false,
+        "cited_docs": [
+          "workplace_policy.pdf"
+        ],
+        "retrieved_docs": [
+          "leave_policy.pdf",
+          "workplace_policy.pdf"
+        ],
+        "tools_called": [],
+        "contract_violations": [],
+        "latency_s": 5.32,
+        "tokens": 1882,
+        "passed": false,
+        "correct": false,
+        "grounded": null,
+        "fact_score": null,
+        "reason": "answered a question it should have refused",
+        "category": "hallucination",
+        "passages": [
+          {
+            "label": "S1",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#2"
+          },
+          {
+            "label": "S2",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#0"
+          },
+          {
+            "label": "S3",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#1"
+          },
+          {
+            "label": "S4",
+            "doc": "workplace_policy.pdf",
+            "chunk_id": "workplace_policy.pdf#1"
+          },
+          {
+            "label": "S5",
+            "doc": "leave_policy.pdf",
+            "chunk_id": "leave_policy.pdf#0"
+          }
+        ],
+        "tool_results": []
+      }
+    ]
+  }
+}

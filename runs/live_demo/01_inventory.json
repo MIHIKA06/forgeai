@@ -1,0 +1,68 @@
+[
+  {
+    "name": "leave_policy.pdf",
+    "kind": "pdf",
+    "pages": 2,
+    "columns": [],
+    "rows": 0,
+    "chars": 3761,
+    "words": 640,
+    "summary": "This document outlines the leave policies for permanent shore-based employees at Shore Staff Seacrest Ship Management Pvt Ltd in Mumbai and Chennai offices.",
+    "topics": [
+      "leave year",
+      "annual leave",
+      "carry forward and encashment",
+      "sick leave",
+      "casual leave",
+      "parental leave",
+      "bereavement leave",
+      "public holidays",
+      "leave without pay",
+      "unauthorised absence"
+    ],
+    "doc_type": "policy"
+  },
+  {
+    "name": "travel_expense_policy.pdf",
+    "kind": "pdf",
+    "pages": 2,
+    "columns": [],
+    "rows": 0,
+    "chars": 3021,
+    "words": 491,
+    "summary": "This document outlines the travel and expense policy for Shore Staff Seacrest Ship Management Pvt Ltd, covering pre-approval, travel modes, accommodation, daily allowances, conveyance, claims, advances, and non-reimbursable expenses.",
+    "topics": [
+      "Scope",
+      "Approval",
+      "Air Travel",
+      "Hotel Accommodation",
+      "Daily Allowance",
+      "Local Conveyance",
+      "Expense Claims",
+      "Travel Advances",
+      "Non-Reimbursable Expenses"
+    ],
+    "doc_type": "policy"
+  },
+  {
+    "name": "workplace_policy.pdf",
+    "kind": "pdf",
+    "pages": 2,
+    "columns": [],
+    "rows": 0,
+    "chars": 2694,
+    "words": 438,
+    "summary": "This document outlines the workplace policies for Shore Staff Seacrest Ship Management Pvt Ltd, including working hours, hybrid work, information security, probation, notice periods, code of conduct, grievance redressal, and learning and development.",
+    "topics": [
+      "working hours",
+      "hybrid work",
+      "information security",
+      "probation and confirmation",
+      "notice period",
+      "code of conduct",
+      "grievance redressal",
+      "learning and development"
+    ],
+    "doc_type": "policy"
+  }
+]

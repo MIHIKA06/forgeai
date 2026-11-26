@@ -1,0 +1,169 @@
+[
+  {
+    "iteration": 0,
+    "version": 0,
+    "scores": {
+      "n": 17,
+      "passed": 15,
+      "pass_rate": 0.882,
+      "answer_accuracy": 0.917,
+      "groundedness": 1.0,
+      "refusal_recall": 0.8,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.917,
+      "judge_disagreements": 10,
+      "judge_flags_overruled": 9,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "1/2",
+        "out_of_scope": "2/3"
+      },
+      "failure_categories": {
+        "prompt_defect": 1,
+        "hallucination": 1
+      },
+      "mean_latency_s": 9.561
+    },
+    "fixes": [],
+    "accepted": true,
+    "note": "baseline (tournament winner)"
+  },
+  {
+    "iteration": 1,
+    "version": 1,
+    "fixes": [
+      {
+        "target": "prompt:answer_style",
+        "what_changed": "Added rules to ensure required facts and citations are included, and emphasized using only provided passages.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -17,3 +17,3 @@\n ## Answer style\n-Provide a short paragraph with a policy citation, followed by bullet steps for procedures. Quote exact figures when necessary. Keep sentences concise and to the point\n+Provide concise paragraphs with policy citations, followed by bullet steps for procedures. Quote exact figures when necessary. Avoid missing required facts or omitting citations. Use only provided CONTEXT passages.\n ",
+        "category": "prompt_defect",
+        "addresses": [
+          "M02"
+        ],
+        "why": "The right passages were retrieved and the assistant answered, but the answer missed required facts, omitted citations, ignored an available tool, or broke the output format.",
+        "fixed_cases": []
+      },
+      {
+        "target": "prompt:grounding_rules",
+        "what_changed": "Added refusal to answer out-of-scope questions and always citing used passages to prevent hallucination.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -10,3 +10,3 @@\n ## Grounding rules\n-Use only provided CONTEXT passages; label references with [S1], [S2]...; do not invent facts, numbers, or policies; if passages conflict, state the conflict\n+Use only provided CONTEXT passages; label references with [S1], [S2]...; do not invent facts, numbers, or policies; if passages conflict, state the conflict; refuse to answer questions outside scope; always cite passages used.\n ",
+        "category": "hallucination",
+        "addresses": [
+          "O04"
+        ],
+        "why": "The assistant stated things not supported by the passages, or answered questions that are out of scope instead of refusing.",
+        "fixed_cases": []
+      }
+    ],
+    "score_before": 0.882,
+    "score_after": 0.824,
+    "scores": {
+      "n": 17,
+      "passed": 14,
+      "pass_rate": 0.824,
+      "answer_accuracy": 0.917,
+      "groundedness": 0.917,
+      "refusal_recall": 0.8,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.875,
+      "judge_disagreements": 9,
+      "judge_flags_overruled": 7,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "0/2",
+        "out_of_scope": "2/3"
+      },
+      "failure_categories": {
+        "hallucination": 2,
+        "prompt_defect": 1
+      },
+      "mean_latency_s": 41.963
+    },
+    "accepted": false,
+    "newly_passing": [],
+    "newly_failing": [
+      "M01"
+    ],
+    "note": "REVERTED: fix lowered the dev score"
+  },
+  {
+    "iteration": 2,
+    "version": 2,
+    "fixes": [
+      {
+        "target": "prompt:tool_use",
+        "what_changed": "Added rules for using tools and providing citations to ensure all required facts are included and the output format is maintained.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "",
+        "category": "prompt_defect",
+        "addresses": [
+          "M02"
+        ],
+        "why": "The right passages were retrieved and the assistant answered, but the answer missed required facts, omitted citations, ignored an available tool, or broke the output format.",
+        "fixed_cases": []
+      },
+      {
+        "target": "prompt:refusal_policy",
+        "what_changed": "Clarified that refusal is the default action and only to escalate for uncovered topics, aligning with the refusal-first principle.",
+        "evidence": {
+          "lint_fixes": []
+        },
+        "diff": "--- before\n+++ after\n@@ -13,4 +13,3 @@\n ## Refusal policy\n-Refuse to discuss disciplinary actions, performance reviews, medical advice, legal advice, personal data, sensitive information, or individual employee cases. Escalate to the HR team for any uncovered topics\n-- Always refuse: Salary structure; Payroll dates; Annual performance bonus.\n+Refuse to discuss disciplinary actions, performance reviews, medical advice, legal advice, personal data, sensitive information, or individual employee cases. Escalate to the HR team for any uncovered topics. Always refuse: Salary structure; Payroll dates; Annual performance bonus.\n ",
+        "category": "hallucination",
+        "addresses": [
+          "O04"
+        ],
+        "why": "The assistant stated things not supported by the passages, or answered questions that are out of scope instead of refusing.",
+        "fixed_cases": []
+      }
+    ],
+    "score_before": 0.882,
+    "score_after": 0.882,
+    "scores": {
+      "n": 17,
+      "passed": 15,
+      "pass_rate": 0.882,
+      "answer_accuracy": 0.917,
+      "groundedness": 1.0,
+      "refusal_recall": 0.8,
+      "false_refusal_rate": 0.0,
+      "retrieval_hit_rate": 1.0,
+      "contract_violation_rate": 0.0,
+      "mean_fact_score": 0.917,
+      "judge_disagreements": 10,
+      "judge_flags_overruled": 9,
+      "by_type": {
+        "ambiguous": "2/2",
+        "answerable": "8/8",
+        "gap_probe": "2/2",
+        "multi_doc": "1/2",
+        "out_of_scope": "2/3"
+      },
+      "failure_categories": {
+        "prompt_defect": 1,
+        "hallucination": 1
+      },
+      "mean_latency_s": 5.453
+    },
+    "accepted": true,
+    "newly_passing": [],
+    "newly_failing": [],
+    "stop_reason": "early stop: two iterations without improvement (budget guard)"
+  }
+]

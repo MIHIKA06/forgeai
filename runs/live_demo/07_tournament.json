@@ -1,0 +1,29 @@
+{
+  "candidates": [
+    {
+      "id": "A_strict",
+      "style": "Strict and terse. Lead with the direct answer in one or two sentences, then the key condition or exception. Prefer quoting exact figures from the passages.",
+      "lint_fixes": [
+        "added 3 missing refusal topics"
+      ],
+      "passed": 15,
+      "n": 17,
+      "pass_rate": 0.882,
+      "mean_fact_score": 0.917
+    },
+    {
+      "id": "B_structured",
+      "style": "Helpful and structured. Start with a one-line answer, then short bullet points for conditions, steps or exceptions. Friendly but professional.",
+      "lint_fixes": [
+        "added 'only from context' rule",
+        "added 3 missing refusal topics"
+      ],
+      "passed": 15,
+      "n": 17,
+      "pass_rate": 0.882,
+      "mean_fact_score": 0.917
+    }
+  ],
+  "winner": "A_strict",
+  "tiebreak": "A_strict vs B_structured: {'A': 0, 'B': 0, 'tie': 6} (each pair judged in both orders; inconsistent verdicts count as tie)"
+}

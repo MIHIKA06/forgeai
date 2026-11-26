@@ -8,3 +8,5 @@ runs/ui_*
 .streamlit/secrets.toml
 .claude/
 runs/*.log
+_my_notes/
+runs/video_demo/

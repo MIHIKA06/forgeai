@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Are there any specific HR policies or questions that you do not want the assistant to address, such as those related to disciplinary actions or performance reviews?",
+    "why": "Determines in/out of scope topics and what must be refused or escalated.",
+    "answer": "No specific policies are excluded.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Can you confirm if the assistant should handle general queries about salary structure, payroll dates, and bonus calculations, or should these be directed to a different system or person?",
+    "why": "Clarifies the scope of salary and bonus-related queries.",
+    "answer": "The assistant will handle general queries about salary structure, payroll dates, and bonus calculations.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "How do you want the assistant to respond if a user asks a question that is not covered by the provided documents?",
+    "why": "Determines the escalation process for out-of-scope questions.",
+    "answer": "The assistant will inform the user that the question is outside its scope and suggest contacting HR.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Do you have a preferred tone or format for the assistant's responses, such as formal, casual, or a specific style?",
+    "why": "Sets the tone and format for the assistant's responses.",
+    "answer": "The assistant will maintain a friendly but precise tone.",
+    "source": "default_assumption"
+  },
+  {
+    "question": "Are there any specific sections or clauses within the provided documents that you would like to highlight or emphasize in the assistant's responses?",
+    "why": "Identifies key sections to emphasize in the assistant's responses.",
+    "answer": "The assistant will provide general information from the documents without highlighting specific sections.",
+    "source": "default_assumption"
+  }
+]

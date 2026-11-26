@@ -1,0 +1,53 @@
+{
+  "max_tokens": 3000000,
+  "max_seconds": 10800,
+  "tokens_in": 147682,
+  "tokens_out": 15274,
+  "tokens_total": 162956,
+  "calls": 230,
+  "cache_hits": 0,
+  "llm_seconds": 6766.7,
+  "wall_seconds": 3656.4,
+  "by_stage": {
+    "intake": {
+      "calls": 6,
+      "tokens": 5300,
+      "seconds": 45.2
+    },
+    "guard": {
+      "calls": 8,
+      "tokens": 5444,
+      "seconds": 25.56
+    },
+    "generator": {
+      "calls": 3,
+      "tokens": 2319,
+      "seconds": 26.73
+    },
+    "evalgen": {
+      "calls": 32,
+      "tokens": 11979,
+      "seconds": 193.41
+    },
+    "judge_calibration": {
+      "calls": 23,
+      "tokens": 9153,
+      "seconds": 121.93
+    },
+    "tournament": {
+      "calls": 70,
+      "tokens": 52913,
+      "seconds": 693.76
+    },
+    "optimizer": {
+      "calls": 62,
+      "tokens": 53014,
+      "seconds": 5492.26
+    },
+    "final_eval": {
+      "calls": 26,
+      "tokens": 22834,
+      "seconds": 167.81
+    }
+  }
+}

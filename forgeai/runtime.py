@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Optional
 
 from . import llm, tools
+from .config import SETTINGS
 from .docs import chunk_documents, load_folder
 from .retrieval import Index
 
@@ -116,7 +117,7 @@ class Agent:
         msgs.append({"role": "user", "content": f"CONTEXT:\n{ctx or '(no passages found)'}\n\nQUESTION: {question}"})
 
         temp = float(self.d.get("generation", {}).get("temperature", 0.1))
-        model = self.d.get("generation", {}).get("model")
+        model = None if SETTINGS.model_overridden else self.d.get("generation", {}).get("model")
         tool_results: list[dict] = []
         violations: list[str] = []
         content = ""
