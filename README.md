@@ -27,7 +27,12 @@ Full evidence per run in [`runs/hr_policy/REPORT.md`](runs/hr_policy/REPORT.md) 
 evals and judge) and [`REGRESSION.md`](runs/hr_policy_regression/REGRESSION.md) (leave policy v5: one test correctly
 detected as *stale*, the agent gives the new 15-day answer; two breaks traced to model instability, not the edit).
 
-Uncached wall time on an M-series Mac with Ollama: ~7 min (HR) and ~15 min (spares). The committed artifacts were
+A third, fully **uncached run from scratch** of the HR brief is committed unedited in [`runs/live_demo/`](runs/live_demo/REPORT.md):
+20/25 (80%); its round-1 fix lowered the dev score and was automatically reverted. Run-to-run variation between it
+and `runs/hr_policy` (96%) shows how much a small model's output varies between runs, which is exactly why the
+report shows a holdout split and a failure audit instead of a single number.
+
+Uncached wall time on an M-series Mac with Ollama: ~7 min (HR) and ~15 min (spares) on a quiet machine; up to ~40 min under memory pressure. The committed artifacts were
 re-generated from the on-disk LLM cache after the last judge fix, so `budget.json` shows cache hits and near-zero wall time.
 
 ### Where the pipeline caught *itself* lying (found while building this)
