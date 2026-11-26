@@ -4,6 +4,8 @@
 > output contract) + an **auto-generated eval set** + a **critic–optimizer loop** + an **honest quality report**.
 > Runs unattended on small **local open models** (Qwen2.5-7B builds, Llama-3.1-8B judges, via Ollama).
 
+**🌐 Live app:** https://forgeai-oceanai.streamlit.app (Run explorer + Chat runner, served by open models on Groq; build new agents locally with Ollama).
+
 The core idea: *every stage runs on a small model that will sometimes lie, so every LLM claim is paired with a
 deterministic check that can catch it.* See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full design.
 
