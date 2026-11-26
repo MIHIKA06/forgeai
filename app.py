@@ -102,7 +102,7 @@ with tab_factory:
 
     if S.get("questions"):
         st.markdown("#### Inventory")
-        st.dataframe(pd.DataFrame([{"file": e["name"], "kind": e["kind"], "summary": e["summary"]} for e in S["inventory"]]), use_container_width=True, hide_index=True)
+        st.dataframe(pd.DataFrame([{"file": e["name"], "kind": e["kind"], "summary": e["summary"]} for e in S["inventory"]]), width="stretch", hide_index=True)
         st.markdown("#### Clarifying questions (≤5) — leave blank to accept the default assumption")
         answers = {}
         for i, q in enumerate(S["questions"], 1):
@@ -193,12 +193,12 @@ with tab_runs:
             st.json(json.loads((sel / "agent.json").read_text()))
         with sub[3]:
             ev = json.loads((sel / "05_evalset.json").read_text())
-            st.dataframe(pd.DataFrame(ev["cases"])[["id", "type", "split", "question", "expected_behavior", "key_facts", "expected_sources"]], use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(ev["cases"])[["id", "type", "split", "question", "expected_behavior", "key_facts", "expected_sources"]], width="stretch", hide_index=True)
             st.markdown("**Generation audit** (LLM claims that failed deterministic verification)")
-            st.dataframe(pd.DataFrame(ev["audit"]["events"]), use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(ev["audit"]["events"]), width="stretch", hide_index=True)
         with sub[4]:
             fr = json.loads((sel / "final_results.json").read_text())
-            st.dataframe(pd.DataFrame(fr)[["id", "type", "split", "passed", "category", "question", "answer", "reason"]], use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(fr)[["id", "type", "split", "passed", "category", "question", "answer", "reason"]], width="stretch", hide_index=True)
         with sub[5]:
             st.json(json.loads((sel / "08_iteration_log.json").read_text()))
         with sub[6]:
